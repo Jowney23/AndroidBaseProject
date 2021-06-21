@@ -25,7 +25,56 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    android.applicationVariants.all { variant ->
+        println("gradle1->   "+variant.buildType.name)
+        def buildType = variant.buildType
+        //编译完成前执行的操作
+        variant.outputs.all { output ->
+            def outputFile = output.outputFile
+            def defaultDestinationPath = rootDir.getAbsolutePath()
+            println("gradle2   "+defaultDestinationPath)
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                //  outputFileName = "TSL-Android-setup-YXZ-" + defaultConfig.versionName + "_" + buildTime() + "_" + output.baseName + ".apk"
+            }
+        }
+        //编译完成后执行的操作
+        variant.assemble.doLast {
+            variant.outputs.all {output ->
+                //复制到根目录下的output文件夹 如果不需要可以直接将代码删除
+                def outputFile = output.outputFile
+                println("gradle3   "+outputFile)
+                publish_To_Local(output,defaultConfig.versionName)
+            }
+        }
+    }
 
+}
+
+def publish_To_Local(output,versionName){
+    // 加载properties
+    def properties = new Properties()
+    def inputStream = project.rootProject.file('local.properties').newDataInputStream()
+    properties.load(inputStream)
+    //apk最终发布路径 （电脑上的真实目录, 配置在local.properties）
+    //C:\Users\admin\Desktop\TSL_APP
+    String publishDir = properties.getProperty("apk.publishDir")
+    String isPublish = properties.getProperty("apk.isPublish")
+    if (publishDir == null || publishDir.isEmpty() || isPublish == "false") {
+        println("NO Publish To Local ! 本地发布路径为空！")
+        return
+    }
+    // 从output 目录复制到发布目录(数组，可以写多个目录)
+    ["${publishDir}"].each { dest ->
+        copy {
+            from output.outputFile
+            into dest
+            rename(output.outputFile.name,"Android_Base" + versionName + "_" + buildTime() + "_" + output.baseName + ".apk")
+        }
+    }
+}
+
+def buildTime() {
+    return new Date().format("yyyyMMdd_HHmm", TimeZone.getTimeZone("GMT+08:00"))
 }
 
 dependencies {
