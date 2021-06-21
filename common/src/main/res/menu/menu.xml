@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--app:showAsAction="ifRoom"，那么只要应用栏中有足够的空间，此操作便会显示为按钮；
+        如果空间不足，无法容纳的操作就会被发送到溢出菜单。 如果您设置了
+        app:showAsAction="never" 此操作会始终列在溢出菜单中，而不会显示在应用栏中。-->
+  <!--  actionViewClass 添加操作视图-->
+   <!-- actionProviderClass 添加操作提供器-->
+    <item
+        android:id="@+id/action_favorite1"
+        android:title="分享"
+        app:showAsAction="ifRoom"
+        app:actionProviderClass="androidx.appcompat.widget.ShareActionProvider"/>
+    <item android:id="@+id/action_search"
+        android:title="搜索"
+        android:icon="@drawable/ic_search_24dp"
+        app:showAsAction="ifRoom|collapseActionView"
+        app:actionViewClass="androidx.appcompat.widget.SearchView" />
+    <!-- Settings, should always be in the overflow -->
+    <item
+        android:id="@+id/action_settings1"
+        android:title="分享1"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_settings2"
+        android:title="分享1"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_settings3"
+        android:title="分享1"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_settings4"
+        android:title="分享1"
+        app:showAsAction="never" />
+</menu>

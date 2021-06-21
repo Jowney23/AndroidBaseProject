@@ -1,0 +1,3 @@
+rootProject.name='AndroidBase'
+include ':app'
+include ':common'

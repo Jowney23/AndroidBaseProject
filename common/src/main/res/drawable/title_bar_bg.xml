@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--最底层 左右间距-->
+    <item android:left="30dp"
+        android:right="30dp">
+        <shape android:shape="rectangle">
+            <!--纯色填充-->
+            <solid android:color="#226571CD"/>
+            <!--部分圆角-->
+            <corners
+                android:bottomLeftRadius="15dp"
+                android:bottomRightRadius="15dp"
+                android:topLeftRadius="0dp"
+                android:topRightRadius="0dp" />
+        </shape>
+    </item>
+
+    <!-- 中间层 左右间距 下间距-->
+    <item android:bottom="5dp"
+        android:left="15dp"
+        android:right="15dp">
+        <shape android:shape="rectangle" >
+
+            <!--纯色填充-->
+            <solid android:color="#663948B6"/>
+            <!--部分圆角-->
+            <corners
+                android:bottomLeftRadius="15dp"
+                android:bottomRightRadius="15dp"
+                android:topLeftRadius="0dp"
+                android:topRightRadius="0dp" />
+        </shape>
+    </item>
+
+    <!-- 最上层  下间距-->
+    <item android:bottom="10dp">
+        <shape android:shape="rectangle" >
+            <!--渐变色填充-->
+            <solid
+               android:color="#ff3948B6" />
+            <!--部分圆角-->
+            <corners
+                android:topLeftRadius="0dp"
+                android:topRightRadius="0dp"
+                android:bottomRightRadius="15dp"
+                android:bottomLeftRadius="15dp"/>
+        </shape>
+    </item>
+</layer-list>

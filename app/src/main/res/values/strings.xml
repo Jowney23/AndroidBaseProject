@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BBQ</string>
+    <!--服务器返回的信息-->
+    <string name="response_message_null">服务器返回Message为空</string>
+    <!-- 自定义服务器错误信息-->
+    <string name="response_data_null">请求成功，服务器返回的data为空</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+</resources>
