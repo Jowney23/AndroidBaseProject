@@ -3,15 +3,15 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    compileSdkVersion compileSdkVersionExt
+    buildToolsVersion buildToolsVersionExt
 
     defaultConfig {
         applicationId "com.example.androidbase"
-        minSdkVersion 26
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion minSdkVersionExt
+        targetSdkVersion targetSdkVersionExt
+        versionCode versionCodeExt
+        versionName versionNameExt
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -20,37 +20,47 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
     }
     buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            manifestPlaceholders = [
+                    APP_NAME: "@string/app_name_debug",
+            ]
+        }
+
         release {
+            manifestPlaceholders = [
+                    APP_NAME: "@string/app_name",
+            ]
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    android.applicationVariants.all { variant ->
-        println("gradle1->   "+variant.buildType.name)
+    applicationVariants.all { variant ->
+        println("gradle1->   " + variant.buildType.name)
         def buildType = variant.buildType
         //编译完成前执行的操作
         variant.outputs.all { output ->
             def outputFile = output.outputFile
             def defaultDestinationPath = rootDir.getAbsolutePath()
-            println("gradle2   "+defaultDestinationPath)
+            println("gradle2   " + defaultDestinationPath)
             if (outputFile != null && outputFile.name.endsWith('.apk')) {
                 //  outputFileName = "TSL-Android-setup-YXZ-" + defaultConfig.versionName + "_" + buildTime() + "_" + output.baseName + ".apk"
             }
         }
         //编译完成后执行的操作
         variant.assemble.doLast {
-            variant.outputs.all {output ->
+            variant.outputs.all { output ->
                 //复制到根目录下的output文件夹 如果不需要可以直接将代码删除
                 def outputFile = output.outputFile
-                println("gradle3   "+outputFile)
-                publish_To_Local(output,defaultConfig.versionName)
+                println("gradle3   " + outputFile)
+                publish_To_Local(output, defaultConfig.versionName)
             }
         }
     }
 
 }
 
-def publish_To_Local(output,versionName){
+def publish_To_Local(output, versionName) {
     // 加载properties
     def properties = new Properties()
     def inputStream = project.rootProject.file('local.properties').newDataInputStream()
@@ -68,7 +78,7 @@ def publish_To_Local(output,versionName){
         copy {
             from output.outputFile
             into dest
-            rename(output.outputFile.name,"Android_Base" + versionName + "_" + buildTime() + "_" + output.baseName + ".apk")
+            rename(output.outputFile.name, "Android_Base" + versionName + "_" + buildTime() + "_" + output.baseName + ".apk")
         }
     }
 }

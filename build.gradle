@@ -1,6 +1,15 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+    ext {
+        compileSdkVersionExt = 30
+        buildToolsVersionExt = "30.0.2"
+        minSdkVersionExt = 26
+        targetSdkVersionExt = 30
+        versionCodeExt = 1
+        versionNameExt = "1.0.1"
+    }
+
     ext.kotlin_version = '1.5.0-M1'
     ext.kotlin_version = '1.4.31'
     repositories {
