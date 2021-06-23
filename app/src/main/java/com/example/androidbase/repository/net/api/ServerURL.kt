@@ -1,4 +1,4 @@
-package com.example.androidbase.net.api
+package com.example.androidbase.repository.net.api
 
 import com.example.androidbase.APP
 import com.example.androidbase.R

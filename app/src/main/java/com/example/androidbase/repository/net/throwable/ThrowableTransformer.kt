@@ -1,8 +1,8 @@
-package com.example.androidbase.net.throwable
+package com.example.androidbase.repository.net.throwable
 
 import com.example.androidbase.APP
 import com.example.androidbase.R
-import com.example.androidbase.net.bean.Response
+import com.example.androidbase.repository.net.bean.Response
 import io.reactivex.Observable
 import io.reactivex.ObservableSource
 import io.reactivex.ObservableTransformer

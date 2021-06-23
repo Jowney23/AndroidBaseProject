@@ -1,4 +1,4 @@
-package com.example.androidbase.net.bean
+package com.example.androidbase.repository.net.bean
 
 class Response<T> {
     // 返回的code

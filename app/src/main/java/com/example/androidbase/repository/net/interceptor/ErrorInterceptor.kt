@@ -1,4 +1,4 @@
-package com.example.androidbase.net.interceptor
+package com.example.androidbase.repository.net.interceptor
 
 import okhttp3.Interceptor
 import okhttp3.Response

@@ -1,15 +1,8 @@
 package com.example.androidbase
 
-import android.app.Application
 import android.content.Context
-import android.graphics.Color
-import android.os.Build
-import android.view.View
-import android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-import android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-import android.view.Window
-import com.example.androidbase.net.api.ServerApi
-import com.example.androidbase.net.api.ServerURL
+import com.example.androidbase.repository.net.api.ServerApi
+import com.example.androidbase.repository.net.api.ServerURL
 import com.jowney.common.BaseApplication
 import com.jowney.common.net.RetrofitMaster
 

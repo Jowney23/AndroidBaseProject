@@ -1,4 +1,4 @@
-package com.example.androidbase.net.throwable
+package com.example.androidbase.repository.net.throwable
 
 
 class ApiException : Exception {

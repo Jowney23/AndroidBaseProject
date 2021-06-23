@@ -1,4 +1,4 @@
-package com.example.androidbase.net.throwable
+package com.example.androidbase.repository.net.throwable
 
 import android.net.ParseException
 import com.google.gson.JsonParseException
