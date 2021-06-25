@@ -1,12 +1,12 @@
 package com.example.androidbase.fragment.second
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 
 import com.example.androidbase.R
@@ -31,7 +31,7 @@ class SecondFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(SecondViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(SecondViewModel::class.java)
         // TODO: Use the ViewModel
         id_second_ft_bt1.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_secondFragment_to_thirdFragment)

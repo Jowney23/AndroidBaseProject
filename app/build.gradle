@@ -3,18 +3,32 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion compileSdkVersionExt
-    buildToolsVersion buildToolsVersionExt
+    // 路径搞不清楚就打印log瞅瞅
+    //println("Current Path："+file("./").absolutePath)
+
+
+    compileSdkVersion buildVersions.compile_sdk
+    buildToolsVersion buildVersions.build_tools
 
     defaultConfig {
         applicationId "com.example.androidbase"
-        minSdkVersion minSdkVersionExt
-        targetSdkVersion targetSdkVersionExt
-        versionCode versionCodeExt
-        versionName versionNameExt
+        minSdkVersion buildVersions.min_sdk
+        targetSdkVersion buildVersions.target_sdk
+        versionCode buildVersions.version_code
+        versionName buildVersions.version_name
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        release {
+            storeFile file("./sign/tsl_android_base_keystore.jks")
+            storePassword "123456"
+            keyAlias "tsl"
+            keyPassword "123456"
+        }
+    }
+
     compileOptions {
         targetCompatibility JavaVersion.VERSION_1_8
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -32,6 +46,7 @@ android {
                     APP_NAME: "@string/app_name",
             ]
             minifyEnabled false
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -48,7 +63,8 @@ android {
             }
         }
         //编译完成后执行的操作
-        variant.assemble.doLast {
+
+        variant.assembleProvider.get().doLast {
             variant.outputs.all { output ->
                 //复制到根目录下的output文件夹 如果不需要可以直接将代码删除
                 def outputFile = output.outputFile

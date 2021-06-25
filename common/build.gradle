@@ -1,19 +1,19 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
 
 android {
-    compileSdkVersion compileSdkVersionExt
-    buildToolsVersion buildToolsVersionExt
+    compileSdkVersion buildVersions.compile_sdk
+    buildToolsVersion buildVersions.build_tools
 
     defaultConfig {
-        minSdkVersion minSdkVersionExt
-        targetSdkVersion targetSdkVersionExt
-        versionCode versionCodeExt
-        versionName versionNameExt
+        minSdkVersion buildVersions.min_sdk
+        targetSdkVersion buildVersions.target_sdk
+        versionCode buildVersions.version_code
+        versionName buildVersions.version_name
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles 'consumer-rules.pro'
     }
     compileOptions {
         targetCompatibility JavaVersion.VERSION_1_8
@@ -22,20 +22,24 @@ android {
 }
 
 dependencies {
+    def lifecycle_version = "2.3.1"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    api 'androidx.appcompat:appcompat:1.2.0'
-    api 'androidx.constraintlayout:constraintlayout:2.0.4'
-    api 'androidx.legacy:legacy-support-v4:1.0.0'
-    api 'androidx.lifecycle:lifecycle-extensions:2.0.0'
-    api 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
-    api 'androidx.core:core-ktx:1.6.0-alpha01'
-    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    api 'android.arch.lifecycle:common-java8:1.1.1'
-    api 'androidx.paging:paging-runtime:3.0.0-beta01'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    api deps.app_compat
+    api deps.constraint_layout
+    api deps.kotlin.stdlib
+    /*Lifecycle components*/
+    api deps.lifecycle.runtime
+    api deps.lifecycle.java8
+    api deps.lifecycle.viewmodel_ktx
+    api deps.lifecycle.livedata_ktx
+    /*paging*//*
+    api 'androidx.paging:paging-runtime:3.0.0-beta01'*/
+    /*Room components*/
+    api deps.room.runtime
     /*retrofit & rxjava2结合使用的网络请求*/
     api 'com.squareup.retrofit2:retrofit:2.9.0'
     api 'com.squareup.retrofit2:converter-gson:2.9.0'
@@ -52,7 +56,7 @@ dependencies {
     api 'androidx.navigation:navigation-ui-ktx:2.0.0'
     /*StatusBar透明度管理*/
     api 'com.jaeger.statusbarutil:library:1.5.1'
-    /*权限请求*/
+    /*permission*/
     api 'com.github.getActivity:XXPermissions:11.2'
     /*Toast*/
     api 'com.github.getActivity:ToastUtils:9.2'
@@ -63,8 +67,4 @@ dependencies {
     implementation "androidx.camera:camera-core:$camerax_version"
     implementation "androidx.camera:camera-camera2:$camerax_version"
     implementation "androidx.camera:camera-lifecycle:$camerax_version"
-}
-repositories {
-    maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
-    mavenCentral()
 }

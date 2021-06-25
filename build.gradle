@@ -1,27 +1,11 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext {
-        compileSdkVersionExt = 30
-        buildToolsVersionExt = "30.0.2"
-        minSdkVersionExt = 26
-        targetSdkVersionExt = 30
-        versionCodeExt = 1
-        versionNameExt = "1.0.1"
-    }
-
-    ext.kotlin_version = '1.5.0-M1'
-    ext.kotlin_version = '1.4.31'
-    repositories {
-        google()
-        jcenter()
-        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
-        maven { url 'https://jitpack.io' }
-
-    }
+    apply from: 'versions.gradle'
+    addRepos(repositories)
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.3'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath deps.android_gradle_plugin
+        classpath deps.kotlin.plugin
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -29,11 +13,7 @@ buildscript {
 }
 
 allprojects {
-    repositories {
-        google()
-        jcenter()
-        maven { url 'https://jitpack.io' }
-    }
+    addRepos(repositories)
 }
 
 task clean(type: Delete) {

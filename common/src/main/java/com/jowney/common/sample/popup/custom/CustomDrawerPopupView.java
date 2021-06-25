@@ -18,6 +18,7 @@ import com.lxj.xpopup.interfaces.OnConfirmListener;
 import com.lxj.xpopup.widget.VerticalRecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Description: 自定义抽屉弹窗
@@ -53,13 +54,13 @@ public class CustomDrawerPopupView extends DrawerPopupView {
 //        params.topMargin = 450;
 
         VerticalRecyclerView rv = findViewById(R.id.rv);
-        ArrayList<String> list = new ArrayList();
+        List<String> list = new ArrayList<>();
         for (int i = 0; i < 599; i++) {
             list.add(i + "");
         }
-        rv.setAdapter(new EasyAdapter(list, R.layout.temp) {
+        rv.setAdapter(new EasyAdapter<String>(list, R.layout.temp) {
             @Override
-            protected void bind(ViewHolder viewHolder, Object o, int i) {
+            protected void bind(ViewHolder viewHolder, String o, int i) {
                 if (i % 2 == 0) {
                     viewHolder.<TextView>getView(R.id.text).setText("aa - " + i);
                     viewHolder.<TextView>getView(R.id.text).setBackgroundColor(Color.WHITE);
