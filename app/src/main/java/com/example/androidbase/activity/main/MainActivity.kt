@@ -1,11 +1,6 @@
 package com.example.androidbase.activity.main
 
-import android.content.Intent
 import android.os.Bundle
-import android.os.Debug
-import android.os.Handler
-import android.os.Looper
-import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.Animation.AnimationListener
@@ -14,7 +9,7 @@ import android.view.animation.TranslateAnimation
 import android.widget.LinearLayout
 
 import com.example.androidbase.R
-import java.util.concurrent.Executor
+import com.example.androidbase.activity.BaseActivity
 import java.util.concurrent.Executors
 
 class MainActivity : BaseActivity() {

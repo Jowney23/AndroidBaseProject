@@ -36,10 +36,9 @@ dependencies {
     api deps.lifecycle.java8
     api deps.lifecycle.viewmodel_ktx
     api deps.lifecycle.livedata_ktx
-    /*paging*//*
-    api 'androidx.paging:paging-runtime:3.0.0-beta01'*/
     /*Room components*/
     api deps.room.runtime
+  //  annotationProcessor deps.room.compiler
     /*retrofit & rxjava2结合使用的网络请求*/
     api 'com.squareup.retrofit2:retrofit:2.9.0'
     api 'com.squareup.retrofit2:converter-gson:2.9.0'
