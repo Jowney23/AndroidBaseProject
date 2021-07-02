@@ -1,28 +1,39 @@
 package com.example.androidbase.fragment.first
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.androidbase.R
+import com.example.androidbase.fragment.third.ThirdFragment
 import kotlinx.android.synthetic.main.fragment_first.*
 
 
 class FirstFragment : Fragment() {
 
     companion object {
-        var TAG = "Fragment"
+        var TAG = "JFragment"
         fun newInstance() =
             FirstFragment()
     }
 
     private lateinit var viewModel: FirstViewModel
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        Log.d(TAG, "onAttach")
+    }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.d(TAG, "onCreate")
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,7 +54,6 @@ class FirstFragment : Fragment() {
 
         }
     }
-
     override fun onStart() {
         super.onStart()
         Log.d(TAG, "First  onStart")
@@ -74,4 +84,9 @@ class FirstFragment : Fragment() {
         super.onDestroy()
         Log.d(TAG, "First onDestroy")
     }
+    override fun onDetach() {
+        super.onDetach()
+        Log.d(TAG, "First onDestroy")
+    }
+
 }

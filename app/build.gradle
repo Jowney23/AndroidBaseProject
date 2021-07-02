@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
+apply plugin: 'kotlin-kapt'
 android {
     // 路径搞不清楚就打印log瞅瞅
     //println("Current Path："+file("./").absolutePath)
@@ -32,6 +32,10 @@ android {
     compileOptions {
         targetCompatibility JavaVersion.VERSION_1_8
         sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+        freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
     }
     buildTypes {
         debug {
@@ -74,6 +78,9 @@ android {
         }
     }
 
+// To inline the bytecode built with JVM target 1.8 into
+// bytecode that is being built with JVM target 1.6. (e.g. navArgs)
+
 }
 
 def publish_To_Local(output, versionName) {
@@ -105,4 +112,5 @@ def buildTime() {
 
 dependencies {
     implementation project(path: ':common')
+    kapt deps.room.compiler
 }

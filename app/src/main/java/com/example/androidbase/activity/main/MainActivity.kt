@@ -2,34 +2,38 @@ package com.example.androidbase.activity.main
 
 import android.os.Bundle
 import android.view.View
-import android.view.animation.Animation
-import android.view.animation.Animation.AnimationListener
-import android.view.animation.TranslateAnimation
-
-import android.widget.LinearLayout
-
+import androidx.activity.viewModels
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.androidbase.R
 import com.example.androidbase.activity.BaseActivity
-import java.util.concurrent.Executors
+import com.example.androidbase.viewmodel.WordViewModel
+import com.jaeger.library.StatusBarUtil
+import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : BaseActivity() {
     companion object {
         var TAG = "MainActivity1"
     }
 
-    var linearLayout: LinearLayout? = null
+    private val mWordViewModel by viewModels<WordViewModel>()
+
+    val data = ArrayList<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
 
         lifecycle.addObserver(MainPresenter())
-        linearLayout = findViewById(R.id.id_ll_test)
+
+        val navController = findNavController(R.id.widget_nav_host_fragment)
+        widget_bottom_navigation.setupWithNavController(navController)
+        setSupportActionBar(widget_ma_appbar_layout)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-
     }
 
     override fun onResume() {
@@ -38,31 +42,10 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setStatusBar() {
-Executors.newSingleThreadExecutor()
+        StatusBarUtil.setColor(this, getColor(R.color.app_colorPrimaryDark), 5);
     }
 
     fun onTestClickListener(view: View) {
-        var translateAnimation: Animation =
-            TranslateAnimation(0F, linearLayout?.width?.toFloat()!!, 0.0f, 0f)
-        // 参数说明
-        // fromXDelta ：视图在水平方向x 移动的起始值
-        // toXDelta ：视图在水平方向x 移动的结束值
-        // fromYDelta ：视图在竖直方向y 移动的起始值
-        // toYDelta：视图在竖直方向y 移动的结束值
 
-        // 步骤3：属性设置：方法名是在其属性前加“set”，如设置时长setDuration()
-        translateAnimation.duration = 3000
-        translateAnimation.setAnimationListener(object : AnimationListener {
-            override fun onAnimationRepeat(animation: Animation?) {
-            }
-
-            override fun onAnimationEnd(animation: Animation?) {
-            }
-
-            override fun onAnimationStart(animation: Animation?) {
-            }
-        })
-        // 步骤4：播放动画
-        linearLayout?.startAnimation(translateAnimation)
     }
 }

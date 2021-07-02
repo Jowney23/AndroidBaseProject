@@ -1,6 +1,7 @@
 package com.example.androidbase
 
 import android.content.Context
+import android.util.Log
 import com.example.androidbase.repository.net.api.ServerApi
 import com.example.androidbase.repository.net.api.ServerURL
 import com.jowney.common.BaseApplication
@@ -14,6 +15,8 @@ class APP : BaseApplication() {
     override fun onCreate() {
         super.onCreate()
         mContext = this;
+        Log.e("###", mContext?.opPackageName!!)
+
         RetrofitMaster.getInstance().init(ServerURL.BASE_URL,ServerApi::class.java,null)
     }
 

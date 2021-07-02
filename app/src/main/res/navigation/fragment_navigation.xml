@@ -9,27 +9,36 @@
         android:id="@+id/firstFragment"
         android:name="com.example.androidbase.fragment.first.FirstFragment"
         android:label="fragment_first"
-        tools:layout="@layout/fragment_first" >
+        tools:layout="@layout/fragment_first">
         <action
             android:id="@+id/action_firstFragment_to_secondFragment"
-            app:destination="@id/secondFragment" />
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:destination="@id/secondFragment"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right" />
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
         android:name="com.example.androidbase.fragment.second.SecondFragment"
         android:label="fragment_second"
-        tools:layout="@layout/fragment_second" >
+        tools:layout="@layout/fragment_second">
         <action
             android:id="@+id/action_secondFragment_to_thirdFragment"
             app:destination="@id/thirdFragment" />
         <action
             android:id="@+id/action_secondFragment_to_firstFragment"
-            app:destination="@id/firstFragment"
-            app:enterAnim="@anim/nav_default_enter_anim" />
+            app:destination="@id/firstFragment" />
+
+        <!--  <action
+              android:id="@+id/action_secondFragment_to_firstFragment"
+              app:destination="@id/firstFragment"
+              app:enterAnim="@anim/nav_default_enter_anim" />-->
     </fragment>
     <fragment
         android:id="@+id/thirdFragment"
         android:name="com.example.androidbase.fragment.third.ThirdFragment"
         android:label="fragment_third"
         tools:layout="@layout/fragment_third" />
+
 </navigation>

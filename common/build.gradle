@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion buildVersions.compile_sdk
@@ -29,6 +29,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     api deps.app_compat
+    api deps.activity.activity_ktx
     api deps.constraint_layout
     api deps.kotlin.stdlib
     /*Lifecycle components*/
@@ -38,7 +39,7 @@ dependencies {
     api deps.lifecycle.livedata_ktx
     /*Room components*/
     api deps.room.runtime
-  //  annotationProcessor deps.room.compiler
+    kapt deps.room.compiler//room通过注解的方式编写代码，该库用来编译注解
     /*retrofit & rxjava2结合使用的网络请求*/
     api 'com.squareup.retrofit2:retrofit:2.9.0'
     api 'com.squareup.retrofit2:converter-gson:2.9.0'
@@ -48,8 +49,8 @@ dependencies {
     api 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'  //拦截日志
     /*各种弹窗*/
     api 'com.github.li-xiaojun:XPopup:2.3.4'
-    api 'com.google.android.material:material:1.3.0-alpha01'
-    api 'androidx.recyclerview:recyclerview:1.1.0'
+    api 'com.google.android.material:material:1.3.0'
+    api 'androidx.recyclerview:recyclerview:1.2.1'
     /*navigation依赖库*/
     api 'androidx.navigation:navigation-fragment-ktx:2.0.0'
     api 'androidx.navigation:navigation-ui-ktx:2.0.0'

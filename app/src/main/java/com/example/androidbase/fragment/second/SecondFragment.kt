@@ -1,5 +1,6 @@
 package com.example.androidbase.fragment.second
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -21,16 +22,26 @@ class SecondFragment : Fragment() {
     }
 
     private lateinit var viewModel: SecondViewModel
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        Log.d(FirstFragment.TAG, "Second onAttach")
+    }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.d(FirstFragment.TAG, "Second onCreate")
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Log.d(FirstFragment.TAG, "Second onCreateView")
         return inflater.inflate(R.layout.fragment_second, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        Log.d(FirstFragment.TAG, "Second onActivityCreated")
         viewModel = ViewModelProvider(this).get(SecondViewModel::class.java)
         // TODO: Use the ViewModel
         id_second_ft_bt1.setOnClickListener {
@@ -71,5 +82,10 @@ class SecondFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d(FirstFragment.TAG, "Second onDestroy")
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        Log.d(FirstFragment.TAG, "Second onDetach")
     }
 }

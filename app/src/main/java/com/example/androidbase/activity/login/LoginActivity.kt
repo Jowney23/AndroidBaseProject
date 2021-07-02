@@ -1,23 +1,28 @@
 package com.example.androidbase.activity.login
 
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.Navigation
 import com.example.androidbase.R
-import com.example.androidbase.activity.main.MainPresenter
+import com.example.androidbase.activity.BaseActivity
+import com.example.androidbase.fragment.first.FirstFragment
 
-class LoginActivity : AppCompatActivity() {
+
+class LoginActivity : BaseActivity() {
     companion object{
-       var TAG = "LoginActivity"
+       var TAG = "JLogin"
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
+        Log.d(TAG,"onCreate")
     }
 
+    override fun onRestart() {
+        super.onRestart()
+        Log.d(TAG,"onReStart")
+    }
     override fun onStart() {
         super.onStart()
         Log.d(TAG,"onStart")
@@ -25,7 +30,8 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        Log.d(TAG,"onResume")
+        Log.d(TAG,"onResume"+ Navigation.findNavController(this,R.id.id_nav_host_fragment))
+
     }
 
     override fun onPause() {
@@ -41,5 +47,14 @@ class LoginActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d(TAG,"onDestroy")
+    }
+
+    override fun setStatusBar() {
+
+    }
+
+    override fun onBackPressed() {
+        Log.d("Jowney", this.supportFragmentManager.backStackEntryCount.toString())
+        super.onBackPressed()
     }
 }

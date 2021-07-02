@@ -5,13 +5,14 @@
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
        <!-- titlbar颜色-->
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/common_colorPrimary</item>
        <!-- statusbar颜色-->
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+       <!-- 设置为透明为了闪屏界面，后面需要的颜色的时候再设置-->
+        <item name="colorPrimaryDark">@color/app_colorTransparent</item>
 
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/common_colorAccent</item>
         <!--解决首屏启动白屏-->
-        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="android:windowBackground">@drawable/splash_layer_list</item>
     </style>
 
 </resources>

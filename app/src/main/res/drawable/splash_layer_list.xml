@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modify this file to customize your launch splash_layer_list screen -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <!-- You can insert your own image assets here -->
+    <item android:drawable="@mipmap/splash"/>
+</layer-list>
