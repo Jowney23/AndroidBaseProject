@@ -20,7 +20,7 @@ abstract class BaseActivity : AppCompatActivity() {
     abstract fun setStatusBar();
 
     override fun onBackPressed() {
-        super.onBackPressed()
+     //   super.onBackPressed()
         //如果当前activity是根activity则阻拦返回
         if (!isTaskRoot) {
             super.onBackPressed()

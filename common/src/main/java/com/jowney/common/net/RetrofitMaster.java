@@ -32,7 +32,7 @@ public class RetrofitMaster {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
             @Override
             public void log(String message) {
-                Log.i("msg", "|" + message);
+                Log.i("Net_Log_Interceptor", "|" + message);
             }
         });
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);

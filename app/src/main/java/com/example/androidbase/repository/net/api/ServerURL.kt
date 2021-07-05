@@ -3,6 +3,13 @@ package com.example.androidbase.repository.net.api
 import com.example.androidbase.APP
 import com.example.androidbase.R
 
-object ServerURL {
-        var BASE_URL: String? = APP.mContext?.getString(R.string.base_url);
+/// URL_FUNCTION 功能控制类接口
+/// URL_CHECK 检查类接口
+/// URL_DATA 前缀是获取数据类接口
+class ServerURL {
+    companion object Obj {
+        const val URL_BASE: String = "http://www.tslsh.cn:8702/"
+        const val URL_DATA_JOKE: String = "http://v.juhe.cn/joke/content/text.php"
+    }
+
 }

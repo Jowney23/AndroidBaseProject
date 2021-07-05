@@ -17,7 +17,7 @@ class APP : BaseApplication() {
         mContext = this;
         Log.e("###", mContext?.opPackageName!!)
 
-        RetrofitMaster.getInstance().init(ServerURL.BASE_URL,ServerApi::class.java,null)
+        RetrofitMaster.getInstance().init(ServerURL.URL_BASE,ServerApi::class.java,null)
     }
 
     override fun onLowMemory() {
