@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.androidbase.R
-import com.example.androidbase.repository.net.api.ServerOperator
+import com.jowney.common.util.logger.L
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment : Fragment() {
@@ -28,8 +28,11 @@ class HomeFragment : Fragment() {
             textView.text = it
         })
         root.widget_fm_home_bt.setOnClickListener {
-            ServerOperator.operatorDataJoke()
-
+            //  ServerOperator.operatorDataJoke()
+            L.t("###")
+            L.d("12       ,3\n ddddddddddddddddd")
+            L.d(arrayListOf<Int>(1, 2, 3, 4))
+            L.d("这是啥？%d", 1)
         }
         return root
     }

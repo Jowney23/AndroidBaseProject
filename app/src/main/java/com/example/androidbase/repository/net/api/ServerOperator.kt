@@ -54,6 +54,9 @@ object ServerOperator {
 
             }, {
                 var exeption: ApiException = it as ApiException
+                //本地打印日志搞一下
+                //网络监控crash搞一下
+                //leakcanary
             })
     }
 

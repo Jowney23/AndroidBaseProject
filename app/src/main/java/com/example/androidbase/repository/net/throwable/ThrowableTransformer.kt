@@ -14,7 +14,7 @@ class ThrowableTransformer<T> : ObservableTransformer<ServerResponse<T>, T> {
             .onErrorResumeNext(Function {
                 return@Function Observable.error(ExceptionHandler.handle(it))
             }).flatMap(Function {
-                val code: Int = it.errorCode!!
+                val code: Int = it.error_code
                 val message = it.reason ?: APP.mContext?.getString(R.string.response_message_null);
                 if (code == 0) {
                     if (it.result == null) {
