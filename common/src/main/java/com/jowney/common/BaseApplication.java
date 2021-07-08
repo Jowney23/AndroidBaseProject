@@ -7,6 +7,7 @@ import com.hjq.toast.ToastUtils;
 import com.hjq.toast.style.WhiteToastStyle;
 import com.jowney.common.net.RetrofitMaster;
 import com.jowney.common.util.PermissionInterceptor;
+import com.tencent.bugly.crashreport.CrashReport;
 
 public class BaseApplication extends Application {
     @Override
@@ -17,5 +18,8 @@ public class BaseApplication extends Application {
 
         // 设置权限申请拦截器
         XXPermissions.setInterceptor(new PermissionInterceptor());
+
+        //腾讯Bugly初始化
+        CrashReport.initCrashReport(getApplicationContext(), "86eb19a6cd", BuildConfig.DEBUG);
     }
 }

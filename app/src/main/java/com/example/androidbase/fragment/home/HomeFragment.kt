@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.androidbase.R
 import com.jowney.common.util.logger.L
+import com.tencent.bugly.crashreport.CrashReport
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment : Fragment() {
@@ -29,6 +30,8 @@ class HomeFragment : Fragment() {
         })
         root.widget_fm_home_bt.setOnClickListener {
             //  ServerOperator.operatorDataJoke()
+          //  CrashReport.testJavaCrash()
+         //   CrashReport.testNativeCrash()
             L.t("###")
             L.d("12       ,3\n ddddddddddddddddd")
             L.d(arrayListOf<Int>(1, 2, 3, 4))

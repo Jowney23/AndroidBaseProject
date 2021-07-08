@@ -106,3 +106,6 @@ Timber.plant(new Timber.DebugTree() {
 });
 ```
 
+## Tencent bugly 模块儿
+
+配置链接：https://bugly.qq.com/docs/user-guide/advance-features-android/#bugly_1
