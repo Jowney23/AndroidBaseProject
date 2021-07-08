@@ -1,22 +1,22 @@
 # AndroidBaseProject
 android架构搭建 功能预览 快速实现开发
 
-#日志模块儿
+###日志模块儿
 
-Initialize
+##Initialize
 ```java
 Logger.addLogAdapter(new AndroidLogAdapter());
 ```
-And use
+##And use
 ```java
 Logger.d("hello");
 ```
 
-### Output
+## Output
 <img src='https://github.com/orhanobut/logger/blob/master/art/logger_output.png'/>
 
 
-### Options
+## Options
 ```java
 Logger.d("debug");
 Logger.e("error");
