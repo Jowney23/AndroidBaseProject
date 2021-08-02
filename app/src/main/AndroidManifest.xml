@@ -1,38 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.androidbase">
+    package="com.tsl.androidbase">
 
     <application
-        android:name=".APP"
+        android:name="com.tsl.androidbase.APP"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="${APP_NAME}"
+        android:requestLegacyExternalStorage="true"
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".activity.main.MainActivity">
+        <activity android:name="com.tsl.androidbase.activity.show.ShowActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.jowney.common.sample.popup.CommonPopupActivity" />
-        <activity android:name=".activity.login.LoginActivity">
+        <activity android:name="com.tsl.androidbase.activity.bottomnavication.BottomNavicationActivity">
+           <!-- <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+        <activity android:name="com.jowney.common.sample.popup.CommonPopupActivity" >
+           <!--   <intent-filter>
+               <action android:name="android.intent.action.MAIN" />
+               <category android:name="android.intent.category.LAUNCHER" />
+           </intent-filter>-->
+        </activity>
+        <activity android:name="com.tsl.androidbase.activity.login.LoginActivity">
+
            <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>-->
         </activity>
         <activity android:name="com.jowney.common.sample.AnimationActivity">
-           <!-- <intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.main.MainActivity" />
+                android:value="com.tsl.androidbase.activity.bottomnavication.BottomNavicationActivity" />
         </activity>
     </application>
 

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bottom_show_popup_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/widget_bsp_view_table_layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:tabGravity="center"
+            app:tabIndicatorColor="#ffffff"
+            app:tabIndicatorFullWidth="false" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3" />
+    </LinearLayout>
+    <!--
+          tabIndicatorColor  指示器颜色
+          tabIndicatorHeight 指示器高度
+          tabIndicatorFullWidth  设置为false 则指示器跟文本宽度一致
+          tabUnboundedRipple 设置为true点击时会有一个水波纹效果
+          tabGravity 可设置center或fill；center指的是居中显示，fill指的是沾满全屏。
+          tabMode 可设置fixed和 scrollable；fixed：指的是固定tab；scrollable指的是tab可滑动。
+          tabTextColor tab文字颜色
+          tabSelectedTextColor 选中时的tab颜色
+
+      -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/widget_bsp_view_pager2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" />
+</LinearLayout>

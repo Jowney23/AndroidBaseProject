@@ -3,8 +3,8 @@
     <style name="AppTheme" parent="AppBaseTheme" />
     <!-- Base application theme. -->
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-       <!-- titlbar颜色-->
+        <!-- Customize theme here. -->
+       <!-- titlbar颜色也叫actionbar-->
         <item name="colorPrimary">@color/common_colorPrimary</item>
        <!-- statusbar颜色-->
        <!-- 设置为透明为了闪屏界面，后面需要的颜色的时候再设置-->

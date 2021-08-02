@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_colorPrimary"
+    android:fitsSystemWindows="false"
+    tools:context=".activity.bottomnavication.BottomNavicationActivity">
+
+  <androidx.appcompat.widget.Toolbar
+      android:id="@+id/widget_bna_toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="56dp"
+      android:background="@color/app_colorPrimaryDark"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toTopOf="@+id/widget_bna__nav_host_fragment"
+      />
+  <fragment
+      android:id="@+id/widget_bna__nav_host_fragment"
+      android:name="androidx.navigation.fragment.NavHostFragment"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      app:defaultNavHost="true"
+      app:layout_constraintBottom_toTopOf="@id/widget_bna_bottom_navigation"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/widget_bna_toolbar"
+      app:navGraph="@navigation/bottom_navigation" />
+
+
+  <!-- 通过selector标签设置item未被选择时 和 选择时的颜色-->
+  <!-- app:itemBackground="@null"  取出ripple效果-->
+  <com.google.android.material.bottomnavigation.BottomNavigationView
+      android:id="@+id/widget_bna_bottom_navigation"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@drawable/bg_round"
+      app:itemHorizontalTranslationEnabled="false"
+      app:itemIconSize="20dp"
+      app:itemIconTint="@color/bottom_navigation_selector_color"
+      app:itemTextColor="@color/bottom_navigation_selector_color"
+      app:itemBackground="@null"
+
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+
+      app:menu="@menu/bottom_nav_menu" />
+</androidx.constraintlayout.widget.ConstraintLayout>
