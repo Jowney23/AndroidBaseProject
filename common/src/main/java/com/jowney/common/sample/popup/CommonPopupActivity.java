@@ -33,7 +33,7 @@ import com.lxj.xpopup.interfaces.SimpleCallback;
 import com.lxj.xpopup.util.XPermission;
 
 //常用弹出窗口样式选择
-public class    CommonPopupActivity extends AppCompatActivity implements View.OnClickListener {
+public class CommonPopupActivity extends AppCompatActivity implements View.OnClickListener {
     CustomDrawerPopupView drawerPopupView;
     AttachPopupView attachPopupView;
     BasePopupView popupView;

@@ -1,4 +1,4 @@
-package com.youth.banner.listener;
+package com.jowney.common.banner.listener;
 
 public interface OnBannerListener<T> {
 

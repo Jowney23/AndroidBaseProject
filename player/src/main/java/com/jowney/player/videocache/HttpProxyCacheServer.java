@@ -1,17 +1,18 @@
-package com.danikula.videocache;
+package com.jowney.player.videocache;
 
 import android.content.Context;
 import android.net.Uri;
 
-import com.danikula.videocache.file.DiskUsage;
-import com.danikula.videocache.file.FileNameGenerator;
-import com.danikula.videocache.file.Md5FileNameGenerator;
-import com.danikula.videocache.file.TotalCountLruDiskUsage;
-import com.danikula.videocache.file.TotalSizeLruDiskUsage;
-import com.danikula.videocache.headers.EmptyHeadersInjector;
-import com.danikula.videocache.headers.HeaderInjector;
-import com.danikula.videocache.sourcestorage.SourceInfoStorage;
-import com.danikula.videocache.sourcestorage.SourceInfoStorageFactory;
+
+import com.jowney.player.videocache.file.DiskUsage;
+import com.jowney.player.videocache.file.FileNameGenerator;
+import com.jowney.player.videocache.file.Md5FileNameGenerator;
+import com.jowney.player.videocache.file.TotalCountLruDiskUsage;
+import com.jowney.player.videocache.file.TotalSizeLruDiskUsage;
+import com.jowney.player.videocache.headers.EmptyHeadersInjector;
+import com.jowney.player.videocache.headers.HeaderInjector;
+import com.jowney.player.videocache.sourcestorage.SourceInfoStorage;
+import com.jowney.player.videocache.sourcestorage.SourceInfoStorageFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,8 +27,9 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static com.danikula.videocache.Preconditions.checkAllNotNull;
-import static com.danikula.videocache.Preconditions.checkNotNull;
+import static com.jowney.player.videocache.Preconditions.checkAllNotNull;
+import static com.jowney.player.videocache.Preconditions.checkNotNull;
+
 
 /**
  * Simple lightweight proxy server with file caching support that handles HTTP requests.
@@ -198,7 +200,7 @@ public class HttpProxyCacheServer {
         try {
             config.diskUsage.touch(cacheFile);
         } catch (IOException e) {
-            Logger.error("Error touching file " + cacheFile);
+           Logger.error("Error touching file " + cacheFile);
         }
     }
 
@@ -225,26 +227,26 @@ public class HttpProxyCacheServer {
 
     private void processSocket(Socket socket) {
         try {
-            GetRequest request = GetRequest.read(socket.getInputStream());
-            Logger.debug("Request to cache proxy:" + request);
+           GetRequest request = GetRequest.read(socket.getInputStream());
+           Logger.debug("Request to cache proxy:" + request);
             String url = ProxyCacheUtils.decode(request.uri);
-            HttpProxyCacheServerClients clients = getClients(url);
+           HttpProxyCacheServerClients clients = getClients(url);
             clients.processRequest(request, socket);
         } catch (SocketException e) {
             // There is no way to determine that client closed connection http://stackoverflow.com/a/10241044/999458
             // So just to prevent log flooding don't log stacktrace
-            Logger.debug("Closing socket… Socket is closed by client.");
+           Logger.debug("Closing socket… Socket is closed by client.");
         } catch (ProxyCacheException | IOException e) {
             onError(new ProxyCacheException("Error processing request", e));
         } finally {
             releaseSocket(socket);
-            Logger.debug("Opened connections: " + getClientsCount());
+           Logger.debug("Opened connections: " + getClientsCount());
         }
     }
 
     private HttpProxyCacheServerClients getClients(String url) throws ProxyCacheException {
         synchronized (clientsLock) {
-            HttpProxyCacheServerClients clients = clientsMap.get(url);
+           HttpProxyCacheServerClients clients = clientsMap.get(url);
             if (clients == null) {
                 clients = new HttpProxyCacheServerClients(url, config);
                 clientsMap.put(url, clients);
@@ -277,7 +279,7 @@ public class HttpProxyCacheServer {
         } catch (SocketException e) {
             // There is no way to determine that client closed connection http://stackoverflow.com/a/10241044/999458
             // So just to prevent log flooding don't log stacktrace
-            Logger.debug("Releasing input stream… Socket is closed by client.");
+           Logger.debug("Releasing input stream… Socket is closed by client.");
         } catch (IOException e) {
             onError(new ProxyCacheException("Error closing socket input stream", e));
         }
@@ -289,7 +291,7 @@ public class HttpProxyCacheServer {
                 socket.shutdownOutput();
             }
         } catch (IOException e) {
-            Logger.warn("Failed to close socket on proxy side: {}. It seems client have already closed connection.");
+           Logger.warn("Failed to close socket on proxy side: {}. It seems client have already closed connection.");
         }
     }
 
@@ -304,7 +306,7 @@ public class HttpProxyCacheServer {
     }
 
     private void onError(Throwable e) {
-        Logger.error("HttpProxyCacheServer error");
+       Logger.error("HttpProxyCacheServer error");
     }
 
     private final class WaitRequestsRunnable implements Runnable {
@@ -442,7 +444,7 @@ public class HttpProxyCacheServer {
          * @return proxy cache. Only single instance should be used across whole app.
          */
         public HttpProxyCacheServer build() {
-            Config config = buildConfig();
+           Config config = buildConfig();
             return new HttpProxyCacheServer(config);
         }
 

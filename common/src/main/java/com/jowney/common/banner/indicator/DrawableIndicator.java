@@ -1,19 +1,16 @@
-package com.youth.banner.indicator;
+package com.jowney.common.banner.indicator;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 
 import androidx.annotation.DrawableRes;
-import androidx.annotation.IdRes;
 
-import com.youth.banner.R;
+import com.jowney.common.R;
 
 
 /**

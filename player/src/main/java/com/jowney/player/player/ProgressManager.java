@@ -1,4 +1,4 @@
-package xyz.doikki.videoplayer.player;
+package com.jowney.player.player;
 
 /**
  * 播放进度管理器，继承此接口实现自己的进度管理器。

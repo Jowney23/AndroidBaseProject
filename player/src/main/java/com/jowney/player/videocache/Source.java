@@ -1,4 +1,4 @@
-package com.danikula.videocache;
+package com.jowney.player.videocache;
 
 /**
  * Source for proxy.
@@ -13,7 +13,7 @@ public interface Source {
      * @param offset offset in bytes for source.
      * @throws ProxyCacheException if error occur while opening source.
      */
-    void open(long offset) throws ProxyCacheException;
+    void open(long offset) throws ProxyCacheException, ProxyCacheException;
 
     /**
      * Returns length bytes or <b>negative value</b> if length is unknown.
@@ -21,7 +21,7 @@ public interface Source {
      * @return bytes length
      * @throws ProxyCacheException if error occur while fetching source data.
      */
-    long length() throws ProxyCacheException;
+    long length() throws ProxyCacheException, ProxyCacheException;
 
     /**
      * Read data to byte buffer from source with current offset.
@@ -30,12 +30,12 @@ public interface Source {
      * @return a count of read bytes
      * @throws ProxyCacheException if error occur while reading source.
      */
-    int read(byte[] buffer) throws ProxyCacheException;
+    int read(byte[] buffer) throws ProxyCacheException, ProxyCacheException;
 
     /**
      * Closes source and release resources. Every opened source should be closed.
      *
      * @throws ProxyCacheException if error occur while closing source.
      */
-    void close() throws ProxyCacheException;
+    void close() throws ProxyCacheException, ProxyCacheException;
 }

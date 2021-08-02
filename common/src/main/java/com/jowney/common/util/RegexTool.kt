@@ -6,52 +6,7 @@ package com.jowney.common.util
  * @date 2016/1/24
  * 常量工具类
  */
-object ConstTool {
-    /******************** 存储相关常量  */
-    /**
-     * Byte与Byte的倍数
-     */
-    const val BYTE = 1
-
-    /**
-     * KB与Byte的倍数
-     */
-    const val KB = 1024
-
-    /**
-     * MB与Byte的倍数
-     */
-    const val MB = 1048576
-
-    /**
-     * GB与Byte的倍数
-     */
-    const val GB = 1073741824
-
-    /**
-     * 毫秒与毫秒的倍数
-     */
-    const val MSEC = 1
-    /******************** 时间相关常量  */
-    /**
-     * 秒与毫秒的倍数
-     */
-    const val SEC = 1000
-
-    /**
-     * 分与毫秒的倍数
-     */
-    const val MIN = 60000
-
-    /**
-     * 时与毫秒的倍数
-     */
-    const val HOUR = 3600000
-
-    /**
-     * 天与毫秒的倍数
-     */
-    const val DAY = 86400000
+object RegexTool {
 
     /**
      * 正则：手机号（简单）
@@ -133,11 +88,5 @@ object ConstTool {
      */
     const val REGEX_IP = "((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)"
 
-    enum class MemoryUnit {
-        BYTE, KB, MB, GB
-    }
 
-    enum class TimeUnit {
-        MSEC, SEC, MIN, HOUR, DAY
-    }
 }

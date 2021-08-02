@@ -1,11 +1,12 @@
-package com.youth.banner.util;
+package com.jowney.common.banner.util;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.youth.banner.Banner;
+
+import com.jowney.common.banner.Banner;
 
 import java.lang.reflect.Field;
 

@@ -1,4 +1,4 @@
-package com.danikula.videocache;
+package com.jowney.player.videocache;
 
 import java.io.ByteArrayInputStream;
 import java.util.Arrays;
@@ -39,8 +39,8 @@ public class ByteArrayCache implements Cache {
 
     @Override
     public void append(byte[] newData, int length) throws ProxyCacheException {
-        Preconditions.checkNotNull(data);
-        Preconditions.checkArgument(length >= 0 && length <= newData.length);
+       Preconditions.checkNotNull(data);
+       Preconditions.checkArgument(length >= 0 && length <= newData.length);
 
         byte[] appendedData = Arrays.copyOf(data, data.length + length);
         System.arraycopy(newData, 0, appendedData, data.length, length);

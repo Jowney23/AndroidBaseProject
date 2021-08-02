@@ -1,4 +1,4 @@
-package xyz.doikki.videoplayer.util;
+package com.jowney.player.util;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

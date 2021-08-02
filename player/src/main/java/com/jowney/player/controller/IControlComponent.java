@@ -1,4 +1,4 @@
-package xyz.doikki.videoplayer.controller;
+package com.jowney.player.controller;
 
 import android.view.View;
 import android.view.animation.Animation;

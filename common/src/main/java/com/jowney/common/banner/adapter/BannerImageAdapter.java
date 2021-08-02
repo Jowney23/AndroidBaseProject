@@ -1,9 +1,10 @@
-package com.youth.banner.adapter;
+package com.jowney.common.banner.adapter;
 
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.youth.banner.holder.BannerImageHolder;
+
+import com.jowney.common.banner.holder.BannerImageHolder;
 
 import java.util.List;
 

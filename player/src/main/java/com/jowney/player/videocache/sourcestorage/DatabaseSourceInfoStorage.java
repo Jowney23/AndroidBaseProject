@@ -1,4 +1,4 @@
-package com.danikula.videocache.sourcestorage;
+package com.jowney.player.videocache.sourcestorage;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,10 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.danikula.videocache.SourceInfo;
+import com.jowney.player.videocache.SourceInfo;
 
-import static com.danikula.videocache.Preconditions.checkAllNotNull;
-import static com.danikula.videocache.Preconditions.checkNotNull;
+import static com.jowney.player.videocache.Preconditions.checkAllNotNull;
+import static com.jowney.player.videocache.Preconditions.checkNotNull;
+
 
 /**
  * Database based {@link SourceInfoStorage}.

@@ -1,4 +1,4 @@
-package xyz.doikki.videocontroller.component;
+package com.jowney.player.ui.view;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -16,12 +16,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import xyz.doikki.videocontroller.R;
-import xyz.doikki.videoplayer.controller.IGestureComponent;
-import xyz.doikki.videoplayer.controller.ControlWrapper;
-import xyz.doikki.videoplayer.player.VideoView;
+import com.jowney.player.R;
+import com.jowney.player.controller.ControlWrapper;
+import com.jowney.player.controller.IGestureComponent;
+import com.jowney.player.player.VideoView;
 
-import static xyz.doikki.videoplayer.util.PlayerUtils.stringForTime;
+import static com.jowney.player.util.PlayerUtils.stringForTime;
+
 
 /**
  * 手势控制

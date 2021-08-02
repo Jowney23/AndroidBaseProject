@@ -1,8 +1,6 @@
-package com.youth.banner.transformer;
+package com.jowney.common.banner.transformer;
 
 import android.view.View;
-
-import androidx.viewpager2.widget.ViewPager2;
 
 
 public class ZoomOutPageTransformer extends BasePageTransformer {

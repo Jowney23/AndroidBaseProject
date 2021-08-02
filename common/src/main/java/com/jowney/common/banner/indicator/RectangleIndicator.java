@@ -1,11 +1,9 @@
-package com.youth.banner.indicator;
+package com.jowney.common.banner.indicator;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-
-import com.youth.banner.config.BannerConfig;
 
 /**
  * 矩形（条形）指示器

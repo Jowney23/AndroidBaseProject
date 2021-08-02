@@ -1,4 +1,4 @@
-package com.danikula.videocache;
+package com.jowney.player.videocache;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -17,8 +17,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeoutException;
 
-import static com.danikula.videocache.Preconditions.checkArgument;
-import static com.danikula.videocache.Preconditions.checkNotNull;
+import static com.jowney.player.videocache.Preconditions.checkArgument;
+import static com.jowney.player.videocache.Preconditions.checkNotNull;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
 /**
@@ -55,7 +55,7 @@ class Pinger {
                     return true;
                 }
             } catch (TimeoutException e) {
-                Logger.warn("Error pinging server (attempt: " + attempts + ", timeout: " + timeout + "). ");
+               Logger.warn("Error pinging server (attempt: " + attempts + ", timeout: " + timeout + "). ");
             } catch (InterruptedException | ExecutionException e) {
                 Logger.error("Error pinging server due to unexpected error");
             }
@@ -98,10 +98,10 @@ class Pinger {
             byte[] response = new byte[expectedResponse.length];
             source.read(response);
             boolean pingOk = Arrays.equals(expectedResponse, response);
-            Logger.info("Ping response: `" + new String(response) + "`, pinged? " + pingOk);
+          Logger.info("Ping response: `" + new String(response) + "`, pinged? " + pingOk);
             return pingOk;
         } catch (ProxyCacheException e) {
-            Logger.error("Error reading ping response");
+           Logger.error("Error reading ping response");
             return false;
         } finally {
             source.close();

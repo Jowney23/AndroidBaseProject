@@ -1,4 +1,4 @@
-package xyz.doikki.videoplayer.render;
+package com.jowney.player.render;
 
 import android.content.Context;
 

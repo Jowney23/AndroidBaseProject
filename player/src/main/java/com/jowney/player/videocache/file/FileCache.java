@@ -1,7 +1,9 @@
-package com.danikula.videocache.file;
+package com.jowney.player.videocache.file;
 
-import com.danikula.videocache.Cache;
-import com.danikula.videocache.ProxyCacheException;
+
+
+import com.jowney.player.videocache.Cache;
+import com.jowney.player.videocache.ProxyCacheException;
 
 import java.io.File;
 import java.io.IOException;

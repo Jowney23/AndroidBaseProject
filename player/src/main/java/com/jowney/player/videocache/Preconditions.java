@@ -1,4 +1,4 @@
-package com.danikula.videocache;
+package com.jowney.player.videocache;
 
 public final class Preconditions {
 

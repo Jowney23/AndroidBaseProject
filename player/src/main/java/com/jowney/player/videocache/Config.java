@@ -1,9 +1,11 @@
-package com.danikula.videocache;
+package com.jowney.player.videocache;
 
-import com.danikula.videocache.file.DiskUsage;
-import com.danikula.videocache.file.FileNameGenerator;
-import com.danikula.videocache.headers.HeaderInjector;
-import com.danikula.videocache.sourcestorage.SourceInfoStorage;
+
+
+import com.jowney.player.videocache.file.DiskUsage;
+import com.jowney.player.videocache.file.FileNameGenerator;
+import com.jowney.player.videocache.headers.HeaderInjector;
+import com.jowney.player.videocache.sourcestorage.SourceInfoStorage;
 
 import java.io.File;
 

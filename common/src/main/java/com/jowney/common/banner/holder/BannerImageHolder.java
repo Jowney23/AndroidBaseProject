@@ -1,4 +1,4 @@
-package com.youth.banner.holder;
+package com.jowney.common.banner.holder;
 
 import android.view.View;
 import android.widget.ImageView;

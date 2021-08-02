@@ -1,4 +1,4 @@
-package com.danikula.videocache.sourcestorage;
+package com.jowney.player.videocache.sourcestorage;
 
 import android.content.Context;
 

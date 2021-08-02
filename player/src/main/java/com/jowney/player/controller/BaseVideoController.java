@@ -1,4 +1,4 @@
-package xyz.doikki.videoplayer.controller;
+package com.jowney.player.controller;
 
 import android.app.Activity;
 import android.content.Context;
@@ -16,15 +16,17 @@ import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.jowney.player.player.VideoView;
+import com.jowney.player.player.VideoViewManager;
+import com.jowney.player.util.CutoutUtil;
+import com.jowney.player.util.L;
+import com.jowney.player.util.PlayerUtils;
+
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import xyz.doikki.videoplayer.player.VideoView;
-import xyz.doikki.videoplayer.player.VideoViewManager;
-import xyz.doikki.videoplayer.util.CutoutUtil;
-import xyz.doikki.videoplayer.util.L;
-import xyz.doikki.videoplayer.util.PlayerUtils;
+
 
 /**
  * 控制器基类
@@ -37,7 +39,7 @@ import xyz.doikki.videoplayer.util.PlayerUtils;
  * 6.设备方向监听: {@link #onOrientationChanged(int)}
  * Created by Doikki on 2017/4/12.
  */
-public abstract class BaseVideoController extends FrameLayout
+public abstract class  BaseVideoController extends FrameLayout
         implements IVideoController,
         OrientationHelper.OnOrientationChangeListener {
 

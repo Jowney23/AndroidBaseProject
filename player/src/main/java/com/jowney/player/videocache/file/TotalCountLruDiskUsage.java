@@ -1,4 +1,4 @@
-package com.danikula.videocache.file;
+package com.jowney.player.videocache.file;
 
 import java.io.File;
 

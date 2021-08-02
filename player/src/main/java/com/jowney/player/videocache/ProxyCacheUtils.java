@@ -1,4 +1,4 @@
-package com.danikula.videocache;
+package com.jowney.player.videocache;
 
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
@@ -12,8 +12,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
-import static com.danikula.videocache.Preconditions.checkArgument;
-import static com.danikula.videocache.Preconditions.checkNotNull;
+import static com.jowney.player.videocache.Preconditions.checkArgument;
+import static com.jowney.player.videocache.Preconditions.checkNotNull;
 
 /**
  * Just simple utils.

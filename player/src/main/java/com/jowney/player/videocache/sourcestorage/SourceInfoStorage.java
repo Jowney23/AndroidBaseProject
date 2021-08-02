@@ -1,6 +1,6 @@
-package com.danikula.videocache.sourcestorage;
+package com.jowney.player.videocache.sourcestorage;
 
-import com.danikula.videocache.SourceInfo;
+import com.jowney.player.videocache.SourceInfo;
 
 /**
  * Storage for {@link SourceInfo}.

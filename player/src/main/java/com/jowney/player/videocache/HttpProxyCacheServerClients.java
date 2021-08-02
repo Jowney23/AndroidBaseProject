@@ -1,10 +1,11 @@
-package com.danikula.videocache;
+package com.jowney.player.videocache;
 
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 
-import com.danikula.videocache.file.FileCache;
+
+import com.jowney.player.videocache.file.FileCache;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,7 +14,8 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static com.danikula.videocache.Preconditions.checkNotNull;
+import static com.jowney.player.videocache.Preconditions.checkNotNull;
+
 
 /**
  * Client for {@link HttpProxyCacheServer}

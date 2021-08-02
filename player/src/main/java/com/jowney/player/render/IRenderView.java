@@ -1,11 +1,12 @@
-package xyz.doikki.videoplayer.render;
+package com.jowney.player.render;
 
 import android.graphics.Bitmap;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 
-import xyz.doikki.videoplayer.player.AbstractPlayer;
+import com.jowney.player.player.AbstractPlayer;
+
 
 public interface IRenderView {
 

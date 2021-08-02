@@ -1,4 +1,4 @@
-package xyz.doikki.videoplayer.player;
+package com.jowney.player.player;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -21,18 +21,20 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.jowney.player.R;
+import com.jowney.player.controller.BaseVideoController;
+import com.jowney.player.controller.MediaPlayerControl;
+import com.jowney.player.render.IRenderView;
+import com.jowney.player.render.RenderViewFactory;
+import com.jowney.player.util.L;
+import com.jowney.player.util.PlayerUtils;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import xyz.doikki.videoplayer.R;
-import xyz.doikki.videoplayer.controller.BaseVideoController;
-import xyz.doikki.videoplayer.controller.MediaPlayerControl;
-import xyz.doikki.videoplayer.render.IRenderView;
-import xyz.doikki.videoplayer.render.RenderViewFactory;
-import xyz.doikki.videoplayer.util.L;
-import xyz.doikki.videoplayer.util.PlayerUtils;
+
 
 /**
  * 播放器

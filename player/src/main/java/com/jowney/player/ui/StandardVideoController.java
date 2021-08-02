@@ -1,4 +1,4 @@
-package xyz.doikki.videocontroller;
+package com.jowney.player.ui;
 
 import android.content.Context;
 import android.content.pm.ActivityInfo;
@@ -15,16 +15,18 @@ import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import xyz.doikki.videocontroller.component.CompleteView;
-import xyz.doikki.videocontroller.component.ErrorView;
-import xyz.doikki.videocontroller.component.GestureView;
-import xyz.doikki.videocontroller.component.LiveControlView;
-import xyz.doikki.videocontroller.component.PrepareView;
-import xyz.doikki.videocontroller.component.TitleView;
-import xyz.doikki.videocontroller.component.VodControlView;
-import xyz.doikki.videoplayer.controller.GestureVideoController;
-import xyz.doikki.videoplayer.player.VideoView;
-import xyz.doikki.videoplayer.util.PlayerUtils;
+import com.jowney.player.R;
+import com.jowney.player.controller.GestureVideoController;
+import com.jowney.player.player.VideoView;
+import com.jowney.player.ui.view.CompleteView;
+import com.jowney.player.ui.view.ErrorView;
+import com.jowney.player.ui.view.GestureView;
+import com.jowney.player.ui.view.LiveControlView;
+import com.jowney.player.ui.view.PrepareView;
+import com.jowney.player.ui.view.TitleView;
+import com.jowney.player.ui.view.VodControlView;
+import com.jowney.player.util.PlayerUtils;
+
 
 /**
  * 直播/点播控制器
@@ -148,13 +150,13 @@ public class StandardVideoController extends GestureVideoController implements V
             int dp24 = PlayerUtils.dp2px(getContext(), 24);
             int cutoutHeight = getCutoutHeight();
             if (orientation == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {
-                FrameLayout.LayoutParams lblp = (LayoutParams) mLockButton.getLayoutParams();
+                FrameLayout.LayoutParams lblp = (FrameLayout.LayoutParams) mLockButton.getLayoutParams();
                 lblp.setMargins(dp24, 0, dp24, 0);
             } else if (orientation == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
-                FrameLayout.LayoutParams layoutParams = (LayoutParams) mLockButton.getLayoutParams();
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) mLockButton.getLayoutParams();
                 layoutParams.setMargins(dp24 + cutoutHeight, 0, dp24 + cutoutHeight, 0);
             } else if (orientation == ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE) {
-                FrameLayout.LayoutParams layoutParams = (LayoutParams) mLockButton.getLayoutParams();
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) mLockButton.getLayoutParams();
                 layoutParams.setMargins(dp24, 0, dp24, 0);
             }
         }

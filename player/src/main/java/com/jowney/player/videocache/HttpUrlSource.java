@@ -1,11 +1,12 @@
-package com.danikula.videocache;
+package com.jowney.player.videocache;
 
 import android.text.TextUtils;
 
-import com.danikula.videocache.headers.EmptyHeadersInjector;
-import com.danikula.videocache.headers.HeaderInjector;
-import com.danikula.videocache.sourcestorage.SourceInfoStorage;
-import com.danikula.videocache.sourcestorage.SourceInfoStorageFactory;
+
+import com.jowney.player.videocache.headers.EmptyHeadersInjector;
+import com.jowney.player.videocache.headers.HeaderInjector;
+import com.jowney.player.videocache.sourcestorage.SourceInfoStorage;
+import com.jowney.player.videocache.sourcestorage.SourceInfoStorageFactory;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -15,8 +16,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 
-import static com.danikula.videocache.Preconditions.checkNotNull;
-import static com.danikula.videocache.ProxyCacheUtils.DEFAULT_BUFFER_SIZE;
+
+import static com.jowney.player.videocache.Preconditions.checkNotNull;
+import static com.jowney.player.videocache.ProxyCacheUtils.DEFAULT_BUFFER_SIZE;
 import static java.net.HttpURLConnection.HTTP_MOVED_PERM;
 import static java.net.HttpURLConnection.HTTP_MOVED_TEMP;
 import static java.net.HttpURLConnection.HTTP_OK;
@@ -153,7 +155,7 @@ public class HttpUrlSource implements Source {
         int redirectCount = 0;
         String url = this.sourceInfo.url;
         do {
-            Logger.debug("Open connection " + (offset > 0 ? " with offset " + offset : "") + " to " + url);
+           Logger.debug("Open connection " + (offset > 0 ? " with offset " + offset : "") + " to " + url);
             connection = (HttpURLConnection) new URL(url).openConnection();
             injectCustomHeaders(connection, url);
             if (offset > 0) {

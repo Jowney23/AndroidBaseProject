@@ -1,4 +1,4 @@
-package xyz.doikki.videoplayer.controller;
+package com.jowney.player.controller;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,10 +13,12 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.jowney.player.player.VideoView;
+import com.jowney.player.util.PlayerUtils;
+
 import java.util.Map;
 
-import xyz.doikki.videoplayer.player.VideoView;
-import xyz.doikki.videoplayer.util.PlayerUtils;
+
 
 /**
  * 包含手势操作的VideoController

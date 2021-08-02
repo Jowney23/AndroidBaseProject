@@ -1,11 +1,10 @@
-package com.youth.banner;
+package com.jowney.common.banner;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.PaintFlagsDrawFilter;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
@@ -26,20 +25,24 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.CompositePageTransformer;
+import androidx.viewpager2.widget.MarginPageTransformer;
+import androidx.viewpager2.widget.ViewPager2;
 
-import com.youth.banner.adapter.BannerAdapter;
-import com.youth.banner.config.BannerConfig;
-import com.youth.banner.config.IndicatorConfig;
-import com.youth.banner.indicator.Indicator;
-import com.youth.banner.listener.OnBannerListener;
-import com.youth.banner.listener.OnPageChangeListener;
-import com.youth.banner.transformer.MZScaleInTransformer;
-import com.youth.banner.transformer.ScaleInTransformer;
-import com.youth.banner.util.BannerLifecycleObserverAdapter;
-import com.youth.banner.util.BannerUtils;
-import com.youth.banner.util.BannerLifecycleObserver;
-import com.youth.banner.util.LogUtils;
-import com.youth.banner.util.ScrollSpeedManger;
+
+import com.jowney.common.R;
+import com.jowney.common.banner.adapter.BannerAdapter;
+import com.jowney.common.banner.config.BannerConfig;
+import com.jowney.common.banner.config.IndicatorConfig;
+import com.jowney.common.banner.indicator.Indicator;
+import com.jowney.common.banner.listener.OnBannerListener;
+import com.jowney.common.banner.listener.OnPageChangeListener;
+import com.jowney.common.banner.transformer.MZScaleInTransformer;
+import com.jowney.common.banner.transformer.ScaleInTransformer;
+import com.jowney.common.banner.util.BannerLifecycleObserver;
+import com.jowney.common.banner.util.BannerLifecycleObserverAdapter;
+import com.jowney.common.banner.util.BannerUtils;
+import com.jowney.common.banner.util.ScrollSpeedManger;
 
 import java.lang.annotation.Retention;
 import java.lang.ref.WeakReference;

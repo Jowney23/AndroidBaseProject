@@ -1,4 +1,4 @@
-package xyz.doikki.videoplayer.player;
+package com.jowney.player.player;
 
 import android.content.Context;
 import android.media.AudioManager;

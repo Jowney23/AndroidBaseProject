@@ -1,4 +1,4 @@
-package com.youth.banner.transformer;
+package com.jowney.common.banner.transformer;
 
 import androidx.viewpager2.widget.ViewPager2;
 

@@ -1,13 +1,8 @@
-package com.youth.banner.transformer;
+package com.jowney.common.banner.transformer;
 
 import android.view.View;
-import android.view.ViewParent;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Px;
-import androidx.core.view.ViewCompat;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.widget.ViewPager2;
 
 public class ScaleInTransformer extends BasePageTransformer {
     private static final float DEFAULT_MIN_SCALE = 0.85f;

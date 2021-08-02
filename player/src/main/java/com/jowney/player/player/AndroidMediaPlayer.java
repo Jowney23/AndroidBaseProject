@@ -1,4 +1,4 @@
-package com.jowney.player.player.media;
+package com.jowney.player.player;
 
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;

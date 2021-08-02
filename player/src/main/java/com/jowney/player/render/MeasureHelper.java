@@ -1,8 +1,9 @@
-package xyz.doikki.videoplayer.render;
+package com.jowney.player.render;
 
 import android.view.View;
 
-import xyz.doikki.videoplayer.player.VideoView;
+import com.jowney.player.player.VideoView;
+
 
 public class MeasureHelper {
 

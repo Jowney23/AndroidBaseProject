@@ -1,4 +1,4 @@
-package xyz.doikki.videoplayer.render;
+package com.jowney.player.render;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -11,7 +11,8 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import xyz.doikki.videoplayer.player.AbstractPlayer;
+import com.jowney.player.player.AbstractPlayer;
+
 
 @SuppressLint("ViewConstructor")
 public class TextureRenderView extends TextureView implements IRenderView, TextureView.SurfaceTextureListener {

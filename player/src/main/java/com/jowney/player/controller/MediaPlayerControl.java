@@ -1,4 +1,4 @@
-package xyz.doikki.videoplayer.controller;
+package com.jowney.player.controller;
 
 import android.graphics.Bitmap;
 

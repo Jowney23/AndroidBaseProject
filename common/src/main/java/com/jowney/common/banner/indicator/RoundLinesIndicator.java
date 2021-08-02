@@ -1,4 +1,4 @@
-package com.youth.banner.indicator;
+package com.jowney.common.banner.indicator;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,8 +7,6 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 
 import androidx.annotation.Nullable;
-
-import com.youth.banner.util.BannerUtils;
 
 public class RoundLinesIndicator extends BaseIndicator {
 

@@ -1,4 +1,4 @@
-package com.youth.banner.transformer;
+package com.jowney.common.banner.transformer;
 
 import android.view.View;
 

@@ -1,8 +1,9 @@
-package com.youth.banner.util;
+package com.jowney.common.banner.util;
 
 import android.util.Log;
 
-import com.youth.banner.BuildConfig;
+import com.jowney.common.BuildConfig;
+
 
 public class LogUtils {
     public static final String TAG = "banner_log";

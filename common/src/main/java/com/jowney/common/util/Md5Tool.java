@@ -6,7 +6,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class CommonUtils {
+public class Md5Tool {
     /***
      * MD5加密 生成32位md5码
      * @param待加密字符串

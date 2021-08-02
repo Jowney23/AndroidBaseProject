@@ -1,4 +1,4 @@
-package com.danikula.videocache;
+package com.jowney.player.videocache;
 
 /**
  * Indicates interruption error in work of {@link ProxyCache} fired by user.

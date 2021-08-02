@@ -1,21 +1,19 @@
-package com.youth.banner.adapter;
+package com.jowney.common.banner.adapter;
 
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.youth.banner.R;
-import com.youth.banner.config.BannerConfig;
-import com.youth.banner.holder.IViewHolder;
-import com.youth.banner.listener.OnBannerListener;
-import com.youth.banner.util.BannerUtils;
+
+import com.jowney.common.R;
+import com.jowney.common.banner.config.BannerConfig;
+import com.jowney.common.banner.holder.IViewHolder;
+import com.jowney.common.banner.listener.OnBannerListener;
+import com.jowney.common.banner.util.BannerUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 
 public abstract class BannerAdapter<T, VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> implements IViewHolder<T, VH> {

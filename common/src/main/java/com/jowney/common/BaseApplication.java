@@ -1,6 +1,7 @@
 package com.jowney.common;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.hjq.permissions.XXPermissions;
 import com.hjq.toast.ToastUtils;
@@ -10,9 +11,12 @@ import com.jowney.common.util.PermissionInterceptor;
 import com.tencent.bugly.crashreport.CrashReport;
 
 public class BaseApplication extends Application {
+   public static Context application;
+
     @Override
     public void onCreate() {
         super.onCreate();
+        application = this;
         // 初始化吐司工具类
         ToastUtils.init(this, new WhiteToastStyle());
 

@@ -1,6 +1,7 @@
-package com.youth.banner.config;
+package com.jowney.common.banner.config;
 
-import com.youth.banner.util.BannerUtils;
+
+import com.jowney.common.banner.util.BannerUtils;
 
 /**
  * 不忘初心

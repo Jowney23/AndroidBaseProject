@@ -1,10 +1,10 @@
-package xyz.doikki.videoplayer.player;
+package com.jowney.player.player;
 
 
 import androidx.annotation.Nullable;
 
-import xyz.doikki.videoplayer.render.RenderViewFactory;
-import xyz.doikki.videoplayer.render.TextureRenderViewFactory;
+import com.jowney.player.render.RenderViewFactory;
+import com.jowney.player.render.TextureRenderViewFactory;
 
 /**
  * 播放器全局配置

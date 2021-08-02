@@ -1,4 +1,4 @@
-package com.youth.banner.util;
+package com.jowney.common.banner.util;
 
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;

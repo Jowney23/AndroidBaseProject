@@ -1,6 +1,7 @@
-package com.danikula.videocache.file;
+package com.jowney.player.videocache.file;
 
-import com.danikula.videocache.Logger;
+
+import com.jowney.player.videocache.Logger;
 
 import java.io.File;
 import java.io.IOException;

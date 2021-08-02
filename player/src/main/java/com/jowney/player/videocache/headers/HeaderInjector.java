@@ -1,4 +1,4 @@
-package com.danikula.videocache.headers;
+package com.jowney.player.videocache.headers;
 
 import java.util.Map;
 

@@ -1,8 +1,9 @@
-package com.danikula.videocache;
+package com.jowney.player.videocache;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static com.danikula.videocache.Preconditions.checkNotNull;
+import static com.jowney.player.videocache.Preconditions.checkNotNull;
+
 
 /**
  * Proxy for {@link Source} with caching support ({@link Cache}).
@@ -33,7 +34,7 @@ class ProxyCache {
     }
 
     public int read(byte[] buffer, long offset, int length) throws ProxyCacheException {
-        ProxyCacheUtils.assertBuffer(buffer, offset, length);
+      ProxyCacheUtils.assertBuffer(buffer, offset, length);
 
         while (!cache.isCompleted() && cache.available() < (offset + length) && !stopped) {
             readSourceAsync();
@@ -170,9 +171,9 @@ class ProxyCache {
     protected final void onError(final Throwable e) {
         boolean interruption = e instanceof InterruptedProxyCacheException;
         if (interruption) {
-            Logger.debug("ProxyCache is interrupted");
+           Logger.debug("ProxyCache is interrupted");
         } else {
-            Logger.error("ProxyCache error");
+           Logger.error("ProxyCache error");
         }
     }
 

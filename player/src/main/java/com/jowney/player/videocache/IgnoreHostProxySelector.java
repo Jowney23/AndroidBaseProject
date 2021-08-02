@@ -1,4 +1,4 @@
-package com.danikula.videocache;
+package com.jowney.player.videocache;
 
 import java.io.IOException;
 import java.net.Proxy;
@@ -8,7 +8,8 @@ import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.danikula.videocache.Preconditions.checkNotNull;
+import static com.jowney.player.videocache.Preconditions.checkNotNull;
+
 
 /**
  * {@link ProxySelector} that ignore system default proxies for concrete host.

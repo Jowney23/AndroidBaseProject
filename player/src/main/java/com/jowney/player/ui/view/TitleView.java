@@ -1,4 +1,4 @@
-package xyz.doikki.videocontroller.component;
+package com.jowney.player.ui.view;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -19,11 +19,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import xyz.doikki.videocontroller.R;
-import xyz.doikki.videoplayer.controller.IControlComponent;
-import xyz.doikki.videoplayer.controller.ControlWrapper;
-import xyz.doikki.videoplayer.player.VideoView;
-import xyz.doikki.videoplayer.util.PlayerUtils;
+import com.jowney.player.R;
+import com.jowney.player.controller.ControlWrapper;
+import com.jowney.player.controller.IControlComponent;
+import com.jowney.player.player.VideoView;
+import com.jowney.player.util.PlayerUtils;
+
 
 /**
  * 播放器顶部标题栏

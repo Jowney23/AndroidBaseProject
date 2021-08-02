@@ -1,8 +1,9 @@
-package xyz.doikki.videoplayer.util;
+package com.jowney.player.util;
 
 import android.util.Log;
 
-import xyz.doikki.videoplayer.player.VideoViewManager;
+import com.jowney.player.player.VideoViewManager;
+
 
 /**
  * 日志类

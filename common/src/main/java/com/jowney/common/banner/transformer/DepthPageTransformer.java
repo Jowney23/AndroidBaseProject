@@ -1,8 +1,6 @@
-package com.youth.banner.transformer;
+package com.jowney.common.banner.transformer;
 
 import android.view.View;
-
-import androidx.viewpager2.widget.ViewPager2;
 
 public class DepthPageTransformer extends BasePageTransformer {
     private static final float DEFAULT_MIN_SCALE = 0.75f;

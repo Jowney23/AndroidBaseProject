@@ -1,8 +1,9 @@
-package com.danikula.videocache.file;
+package com.jowney.player.videocache.file;
 
 import android.text.TextUtils;
 
-import com.danikula.videocache.ProxyCacheUtils;
+import com.jowney.player.videocache.ProxyCacheUtils;
+
 
 /**
  * Implementation of {@link FileNameGenerator} that uses MD5 of url as file name

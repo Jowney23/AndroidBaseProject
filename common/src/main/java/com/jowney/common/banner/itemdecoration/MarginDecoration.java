@@ -1,4 +1,4 @@
-package com.youth.banner.itemdecoration;
+package com.jowney.common.banner.itemdecoration;
 
 import android.graphics.Rect;
 import android.view.View;
@@ -7,8 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Px;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.youth.banner.util.BannerUtils;
 
 
 public class MarginDecoration extends RecyclerView.ItemDecoration {
