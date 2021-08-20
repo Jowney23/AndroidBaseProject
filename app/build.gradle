@@ -92,6 +92,8 @@ def publish_To_Local(output, versionName) {
     //C:\Users\admin\Desktop\TSL_APP
     String publishDir = properties.getProperty("apk.publishDir")
     String isPublish = properties.getProperty("apk.isPublish")
+    String versionType = properties.getProperty("apk.versionType")
+    String apkName = properties.getProperty("apk.apkName")
     if (publishDir == null || publishDir.isEmpty() || isPublish == "false") {
         println("NO Publish To Local ! 本地发布路径为空！")
         return
@@ -101,13 +103,13 @@ def publish_To_Local(output, versionName) {
         copy {
             from output.outputFile
             into dest
-            rename(output.outputFile.name, "Android_Base" + versionName + "_" + buildTime() + "_" + output.baseName + ".apk")
+            rename(output.outputFile.name, apkName + "_" + versionName + "." + buildTime() + "_" + versionType + ".apk")
         }
     }
 }
 
 def buildTime() {
-    return new Date().format("yyyyMMdd_HHmm", TimeZone.getTimeZone("GMT+08:00"))
+    return new Date().format("yyMMdd_HHmm", TimeZone.getTimeZone("GMT+08:00"))
 }
 
 dependencies {
