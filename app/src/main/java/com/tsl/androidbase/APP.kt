@@ -7,18 +7,20 @@ import com.jowney.common.util.logger.*
 import com.jowney.player.player.AndroidMediaPlayerFactory
 import com.jowney.player.player.VideoViewConfig
 import com.jowney.player.player.VideoViewManager
+import com.tsl.androidbase.repository.db.Db
 import com.tsl.androidbase.repository.net.api.ServerApi
 import com.tsl.androidbase.repository.net.api.ServerURL
 
 
 class APP : BaseApplication() {
     companion object {
-        var mContext: Context? = null;
+        lateinit var mContext: Context
     }
 
     override fun onCreate() {
         super.onCreate()
         mContext = this;
+
         //日志模块儿初始化
         L.addLogAdapter(object : AndroidLogAdapter(
             PrettyFormatStrategy.newBuilder()

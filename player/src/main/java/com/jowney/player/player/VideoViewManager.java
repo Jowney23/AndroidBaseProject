@@ -2,7 +2,7 @@ package com.jowney.player.player;
 
 import android.app.Application;
 
-import com.jowney.player.util.L;
+import com.jowney.player.util.PlayerLogUtil;
 
 import java.util.LinkedHashMap;
 
@@ -90,7 +90,7 @@ public class VideoViewManager {
      */
     public void add(VideoView videoView, String tag) {
         if (!(videoView.getContext() instanceof Application)) {
-            L.w("The Context of this VideoView is not an Application Context," +
+            PlayerLogUtil.w("The Context of this VideoView is not an Application Context," +
                     "you must remove it after release,or it will lead to memory leek.");
         }
         VideoView old = get(tag);

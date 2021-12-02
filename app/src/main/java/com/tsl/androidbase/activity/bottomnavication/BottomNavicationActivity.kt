@@ -7,8 +7,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.tsl.androidbase.R
 import com.tsl.androidbase.activity.BaseActivity
-import com.tsl.androidbase.viewmodel.WordViewModel
 import com.jaeger.library.StatusBarUtil
+import com.tsl.androidbase.repository.db.Db
 import kotlinx.android.synthetic.main.activity_bottom_navication.*
 import java.util.*
 
@@ -17,7 +17,6 @@ class BottomNavicationActivity : BaseActivity() {
         var TAG = "MainActivity1"
     }
 
-    private lateinit var mWordViewModel: WordViewModel
 
     val data = ArrayList<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +25,6 @@ class BottomNavicationActivity : BaseActivity() {
         setContentView(R.layout.activity_bottom_navication)
 
         lifecycle.addObserver(BottomNavicationPresenter())
-        mWordViewModel = ViewModelProvider(this).get(WordViewModel::class.java)
         val navController = findNavController(R.id.widget_bna__nav_host_fragment)
         widget_bna_bottom_navigation.setupWithNavController(navController)
         setSupportActionBar(widget_bna_toolbar)
@@ -38,7 +36,6 @@ class BottomNavicationActivity : BaseActivity() {
 
     override fun onResume() {
         super.onResume()
-
     }
 
     override fun setStatusBar() {

@@ -26,7 +26,7 @@ import com.jowney.player.controller.BaseVideoController;
 import com.jowney.player.controller.MediaPlayerControl;
 import com.jowney.player.render.IRenderView;
 import com.jowney.player.render.RenderViewFactory;
-import com.jowney.player.util.L;
+import com.jowney.player.util.PlayerLogUtil;
 import com.jowney.player.util.PlayerUtils;
 
 import java.io.IOException;
@@ -400,7 +400,7 @@ public class  VideoView<P extends AbstractPlayer> extends FrameLayout
      */
     protected void saveProgress() {
         if (mProgressManager != null && mCurrentPosition > 0) {
-            L.d("saveProgress: " + mCurrentPosition);
+            PlayerLogUtil.d("saveProgress: " + mCurrentPosition);
             mProgressManager.saveProgress(mUrl, mCurrentPosition);
         }
     }
@@ -1066,7 +1066,7 @@ public class  VideoView<P extends AbstractPlayer> extends FrameLayout
 
     @Override
     protected Parcelable onSaveInstanceState() {
-        L.d("onSaveInstanceState: " + mCurrentPosition);
+        PlayerLogUtil.d("onSaveInstanceState: " + mCurrentPosition);
         //activity切到后台后可能被系统回收，故在此处进行进度保存
         saveProgress();
         return super.onSaveInstanceState();

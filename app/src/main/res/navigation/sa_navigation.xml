@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/pictureShowFragment"
-        android:name="com.tsl.androidbase.fragment.PictureShowFragment"
+        android:name="com.tsl.androidbase.fragment.show.PictureShowFragment"
         android:label="fragment_picture_show"
         tools:layout="@layout/fragment_picture_show">
 
@@ -20,12 +20,12 @@
     </fragment>
     <fragment
         android:id="@+id/PPTShowFragment"
-        android:name="com.tsl.androidbase.fragment.PPTShowFragment"
+        android:name="com.tsl.androidbase.fragment.show.PPTShowFragment"
         android:label="fragment_p_p_t_show"
         tools:layout="@layout/fragment_p_p_t_show" />
     <fragment
         android:id="@+id/videoShowFragment"
-        android:name="com.tsl.androidbase.fragment.VideoShowFragment"
+        android:name="com.tsl.androidbase.fragment.show.VideoShowFragment"
         android:label="fragment_video_show"
         tools:layout="@layout/fragment_video_show" />
 

@@ -4,10 +4,10 @@
     <!-- Base application theme. -->
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize theme here. -->
-       <!-- titlbar颜色也叫actionbar-->
+        <!-- titlbar颜色也叫actionbar-->
         <item name="colorPrimary">@color/common_colorPrimary</item>
-       <!-- statusbar颜色-->
-       <!-- 设置为透明为了闪屏界面，后面需要的颜色的时候再设置-->
+        <!-- statusbar颜色-->
+        <!-- 设置为透明为了闪屏界面，后面需要的颜色的时候再设置-->
         <item name="colorPrimaryDark">@color/app_colorTransparent</item>
 
         <item name="colorAccent">@color/common_colorAccent</item>
@@ -15,4 +15,31 @@
         <item name="android:windowBackground">@drawable/splash_layer_list</item>
     </style>
 
+    <style name="MyTablayoutstyle" parent="Base.Widget.Design.TabLayout">
+        <item name="tabBackground">@color/app_colorGreen</item>
+        <item name="tabIndicatorColor">#111155</item>
+        //高度设置为0，则没有指示器
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabSelectedTextColor">@color/app_colorRed</item>
+        <item name="tabRippleColor">@color/app_colorTransparent</item>
+        //设置tab的布局，fill是均分，center是集中
+        <item name="tabGravity">center</item>
+        <item name="tabMode">fixed</item>
+        <item name="tabTextColor">@android:color/white</item>
+        //true指示器与tab的宽度一致，false指示器与tab中文字宽度一致
+        <item name="tabIndicatorFullWidth">false</item>
+        //很有意思的一个属性，当tabGravity设置为center时，通过paddingstart和paddingend可以设置tab的宽度
+        <item name="tabPaddingStart">20dp</item>
+        <item name="tabPaddingEnd">20dp</item>
+        //可以调节文字距离上下的距离，如果为0的话默认居中
+        <item name="tabPaddingTop">0dp</item>
+        <item name="tabPaddingBottom">0dp</item>
+        //设置文字外貌
+        <item name="tabTextAppearance">@style/TabTextStyle</item>
+    </style>
+
+    <style name="TabTextStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/alibaba_puhuiti_regular</item>
+    </style>
 </resources>

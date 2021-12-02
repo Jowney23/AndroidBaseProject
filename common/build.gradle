@@ -41,9 +41,7 @@ dependencies {
     api deps.lifecycle.java8
     api deps.lifecycle.viewmodel_ktx
     api deps.lifecycle.livedata_ktx
-    /*Room components*/
-    api deps.room.runtime
-    kapt deps.room.compiler//room通过注解的方式编写代码，该库用来编译注解
+
     /*retrofit & rxjava2结合使用的网络请求*/
     api 'com.squareup.retrofit2:retrofit:2.9.0'
     api 'com.squareup.retrofit2:converter-gson:2.9.0'
@@ -66,6 +64,8 @@ dependencies {
     api 'com.github.getActivity:ToastUtils:9.2'
     api 'com.github.li-xiaojun:EasyAdapter:1.2.4'
     api 'com.github.bumptech.glide:glide:4.12.0'
+    /*EventBus*/
+    api 'org.greenrobot:eventbus:3.0.0'
     /**Camera**/
     def camerax_version = "1.0.0-beta10"
     implementation "androidx.camera:camera-core:$camerax_version"

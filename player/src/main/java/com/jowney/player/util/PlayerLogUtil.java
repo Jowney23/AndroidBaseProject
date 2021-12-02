@@ -10,9 +10,9 @@ import com.jowney.player.player.VideoViewManager;
  * Created by Doikki on 2017/6/5.
  */
 
-public final class L {
+public final class PlayerLogUtil {
 
-    private L() {
+    private PlayerLogUtil() {
     }
 
     private static final String TAG = "DKPlayer";
@@ -45,6 +45,6 @@ public final class L {
     }
 
     public static void setDebug(boolean isDebug) {
-        L.isDebug = isDebug;
+        PlayerLogUtil.isDebug = isDebug;
     }
 }

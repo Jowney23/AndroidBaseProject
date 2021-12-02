@@ -6,84 +6,63 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import com.jowney.common.util.logger.L
 import com.tsl.androidbase.R
 import kotlinx.android.synthetic.main.fragment_first.*
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
+import java.util.concurrent.Executors
 
 
 class FirstFragment : Fragment() {
 
     companion object {
         var TAG = "JFragment"
-        fun newInstance() =
-            FirstFragment()
     }
 
-    private lateinit var viewModel: FirstViewModel
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        Log.d(TAG, "onAttach")
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(TAG, "onCreate")
+        EventBus.getDefault().register(this)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d(TAG, "onCreateView")
-        return inflater.inflate(R.layout.fragment_first, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        viewModel = ViewModelProvider(this).get(FirstViewModel::class.java)
-        Log.d(TAG, "First onActivityCreated")
-        id_first_ft_bt1.setOnClickListener {
+        var view = inflater.inflate(R.layout.fragment_first, container, false)
+        view.findViewById<Button>(R.id.id_first_ft_bt1).setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_firstFragment_to_secondFragment)
         }
-        id_first_ft_bt2.setOnClickListener {
-
+        view.findViewById<Button>(R.id.id_first_ft_bt2).setOnClickListener {
+            EventBus.getDefault().post("123")
         }
-    }
-    override fun onStart() {
-        super.onStart()
-        Log.d(TAG, "First  onStart")
+        return view
     }
 
     override fun onResume() {
         super.onResume()
-        Log.d(TAG, "First  onResume")
-
+       Executors.newSingleThreadExecutor().submit{
+           L.v("123 开始发送")
+           EventBus.getDefault().post("123")
+           EventBus.getDefault().post("123")
+           EventBus.getDefault().post("123")
+           EventBus.getDefault().post("123")
+           EventBus.getDefault().post("123")
+           EventBus.getDefault().post("123")
+           L.v("123 发送完了")
+       }
     }
 
-    override fun onPause() {
-        super.onPause()
-        Log.d(TAG, "First onPause")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d(TAG, "First onStop")
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        Log.d(TAG, "First onDestroyView")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d(TAG, "First onDestroy")
-    }
-    override fun onDetach() {
-        super.onDetach()
-        Log.d(TAG, "First onDestroy")
+    @Subscribe(threadMode = ThreadMode.ASYNC)
+    fun test(i: String) {
+        Thread.sleep(3000)
+        L.v(i + "执行")
     }
 
 }

@@ -1,12 +1,11 @@
 package com.tsl.androidbase.widget
 
 import android.content.Context
-import android.content.res.ColorStateList
-import android.graphics.Color
 import android.graphics.Typeface
-import android.view.Gravity
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.StyleSpan
 import android.view.KeyEvent
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -21,14 +20,13 @@ import com.tsl.androidbase.fragment.preview.BasePreviewFragment
 import com.tsl.androidbase.fragment.preview.PPTPreviewFragment
 import com.tsl.androidbase.fragment.preview.PicturePreviewFragment
 import com.tsl.androidbase.fragment.preview.VideoPreviewFragment
+import com.tsl.androidbase.repository.db.Db
 import kotlinx.android.synthetic.main.popview_bottom_show.view.*
 
 
 class BottomShowPopup(mContext: Context) : BottomPopupView(mContext) {
     private lateinit var mTabLayout: TabLayout
     private lateinit var mViewPager2: ViewPager2
-    private val activeColor = Color.parseColor("#FEFFFF")
-    private val normalColor = Color.parseColor("#FEFFFF")
     private val activeSize = 14
     private val normalSize = 14
     private val mTabs = arrayOf("视频", "PPT", "图片")
@@ -46,35 +44,57 @@ class BottomShowPopup(mContext: Context) : BottomPopupView(mContext) {
 
     override fun onCreate() {
         super.onCreate()
-
         mTabLayout = widget_bsp_view_table_layout
-        mViewPager2 = widget_bsp_view_pager2
-        mViewPager2.offscreenPageLimit =
-            ViewPager2.OFFSCREEN_PAGE_LIMIT_DEFAULT
-        mViewPager2.adapter =
-            object : FragmentStateAdapter(context as FragmentActivity) {
-                override fun getItemCount(): Int {
-                    return mTabs.size;
-                }
+        mTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                var trim = tab?.text.toString().trim()
+                var spStr: SpannableString = SpannableString(trim)
+                var styleSpan: StyleSpan = StyleSpan(Typeface.BOLD)
+                spStr.setSpan(styleSpan, 0, trim.length, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+                tab?.text = spStr
+            }
 
-                override fun createFragment(position: Int): Fragment {
-                    return when (position) {
-                        0 -> mFragments[0]
-                        1 -> mFragments[1]
-                        2 -> mFragments[2]
-                        else -> mFragments[3]
-                    }
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                var trim = tab?.text.toString().trim()
+                //spannableString其实和string一样，
+                //textview可以直接通过设置spannablestring来显示文本，只是spannablestring可以显示更多的样式风格。
+                //spannableString和SpannableStringBuilder   一个是一次性的，一个可多次修改。
+                var spStr: SpannableString = SpannableString(trim)
+                var styleSpan: StyleSpan = StyleSpan(Typeface.NORMAL)
+                spStr.setSpan(styleSpan, 0, trim.length, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+                tab?.text = spStr
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+            }
+        })
+        mViewPager2 = widget_bsp_view_pager2
+        mViewPager2.offscreenPageLimit = ViewPager2.OFFSCREEN_PAGE_LIMIT_DEFAULT
+        mViewPager2.adapter = object : FragmentStateAdapter(context as FragmentActivity) {
+            override fun getItemCount(): Int {
+                return mTabs.size;
+            }
+
+            override fun createFragment(position: Int): Fragment {
+                return when (position) {
+                    0 -> mFragments[0]
+                    1 -> mFragments[1]
+                    2 -> mFragments[2]
+                    else -> mFragments[3]
                 }
             }
-        mViewPager2.isUserInputEnabled = false
+        }
+        //viewPage左右滑动时tablayout也滑动
+        mViewPager2.isUserInputEnabled = true
+
         mViewPager2.registerOnPageChangeCallback(object :
             ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 //可以来设置选中时tab的大小
-                val tabCount: Int = mTabLayout.tabCount
+                /*val tabCount: Int = mTabLayout.tabCount
                 for (i in 0 until tabCount) {
                     val tab: TabLayout.Tab? = mTabLayout.getTabAt(i)
-                    val tabView = tab?.customView as TextView?
+                    val tabView = tab?.view
                     if (tab?.position == position) {
                         tabView!!.textSize = activeSize.toFloat()
                         tabView!!.typeface = Typeface.DEFAULT_BOLD
@@ -82,32 +102,20 @@ class BottomShowPopup(mContext: Context) : BottomPopupView(mContext) {
                         tabView!!.textSize = normalSize.toFloat()
                         tabView!!.typeface = Typeface.DEFAULT
                     }
-                }
+                }*/
             }
         })
         mMediator = TabLayoutMediator(
             mTabLayout, mViewPager2
         ) { tab, position ->
             //这里可以自定义TabView
-            val tabView = TextView(context)
-
-            val states = arrayOfNulls<IntArray>(2)
-            states[0] = intArrayOf(android.R.attr.state_selected)
-            states[1] = intArrayOf()
-
-            val colors = intArrayOf(activeColor, normalColor)
-            val colorStateList = ColorStateList(states, colors)
-            tabView.setText(mTabs[position])
-            tabView.textSize = normalSize.toFloat()
-            tabView.setTextColor(colorStateList)
-            tabView.width = 100
-            tabView.gravity = Gravity.CENTER
-            tab.customView = tabView
-            L.d("$position")
+            /*  val tabView = TextView(context)
+              tabView.text = mTabs[position]*/
+            tab.text = mTabs[position]
+            tab.view.tab?.text
         }
         //要执行这一句才是真正将两者绑定起来
         mMediator!!.attach()
-        mViewPager2.currentItem
     }
 
     override fun onShow() {

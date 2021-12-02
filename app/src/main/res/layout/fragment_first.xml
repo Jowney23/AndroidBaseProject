@@ -15,12 +15,12 @@
         android:textSize="30sp"
         android:text="我是1" />
     <Button
-        android:id="@+id/id_first-ft_bt1"
+        android:id="@+id/id_first_ft_bt1"
         android:text="跳转到2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <Button
-        android:id="@+id/id_first-ft_bt2"
+        android:id="@+id/id_first_ft_bt2"
         android:text="跳转到3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

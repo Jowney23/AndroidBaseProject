@@ -1,6 +1,7 @@
 package com.tsl.androidbase.repository.db.dao
 
 import androidx.lifecycle.LiveData
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -18,6 +19,6 @@ interface WordDao {
     @Query("DELETE FROM word_table")
     fun deleteAll()
 
-    @get:Query("SELECT * FROM word_table ORDER BY word ASC")
-    val alphabetizedWords: LiveData<List<Word>>
+    @Query("SELECT * FROM word_table")
+    fun allWords():PagingSource<Int,Word>
 }

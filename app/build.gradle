@@ -90,12 +90,13 @@ def publish_To_Local(output, versionName) {
     properties.load(inputStream)
     //apk最终发布路径 （电脑上的真实目录, 配置在local.properties）
     //C:\Users\admin\Desktop\TSL_APP
-    String publishDir = properties.getProperty("apk.publishDir")
-    String isPublish = properties.getProperty("apk.isPublish")
-    String versionType = properties.getProperty("apk.versionType")
-    String apkName = properties.getProperty("apk.apkName")
+    String publishDir = extAppVersions.publishDir
+    String isPublish = extAppVersions.isPublish
+    String versionType = extAppVersions.versionType
+    String apkName = extAppVersions.apkName
+    println("1."+publishDir+"      2."+isPublish+"           3."+versionType+ "        4."+apkName)
     if (publishDir == null || publishDir.isEmpty() || isPublish == "false") {
-        println("NO Publish To Local ! 本地发布路径为空！")
+        println("禁止发布apk到本地")
         return
     }
     // 从output 目录复制到发布目录(数组，可以写多个目录)
@@ -103,7 +104,7 @@ def publish_To_Local(output, versionName) {
         copy {
             from output.outputFile
             into dest
-            rename(output.outputFile.name, apkName + "_" + versionName + "." + buildTime() + "_" + versionType + ".apk")
+            rename(output.outputFile.name, apkName + "_" + versionName + "." + buildTime() + "_" + versionType + ".apk_${output.name}")
         }
     }
 }
@@ -115,8 +116,11 @@ def buildTime() {
 dependencies {
     implementation project(path: ':common')
     implementation project(path: ':player')
-    //编译room注解用的
-    kapt deps.room.compiler
+    /*Room components*/
+    implementation deps.room.runtime
+    kapt deps.room.compiler//room通过注解的方式编写代码，该库用来编译注解
+    implementation deps.room.paging
+    implementation deps.paging_runtime
     //单元测试
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

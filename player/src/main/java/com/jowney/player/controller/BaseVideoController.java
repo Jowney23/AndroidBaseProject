@@ -19,7 +19,7 @@ import androidx.annotation.Nullable;
 import com.jowney.player.player.VideoView;
 import com.jowney.player.player.VideoViewManager;
 import com.jowney.player.util.CutoutUtil;
-import com.jowney.player.util.L;
+import com.jowney.player.util.PlayerLogUtil;
 import com.jowney.player.util.PlayerUtils;
 
 import java.util.Iterator;
@@ -357,7 +357,7 @@ public abstract class  BaseVideoController extends FrameLayout
                 mCutoutHeight = (int) PlayerUtils.getStatusBarHeightPortrait(mActivity);
             }
         }
-        L.d("hasCutout: " + mHasCutout + " cutout height: " + mCutoutHeight);
+        PlayerLogUtil.d("hasCutout: " + mHasCutout + " cutout height: " + mCutoutHeight);
     }
 
     /**
