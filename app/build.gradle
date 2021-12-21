@@ -116,6 +116,7 @@ def buildTime() {
 dependencies {
     implementation project(path: ':common')
     implementation project(path: ':player')
+    implementation project(path: ':camera')
     /*Room components*/
     implementation deps.room.runtime
     kapt deps.room.compiler//room通过注解的方式编写代码，该库用来编译注解
