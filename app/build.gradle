@@ -7,15 +7,15 @@ android {
     //println("Current Path："+file("./").absolutePath)
 
 
-    compileSdkVersion buildVersions.compile_sdk
-    buildToolsVersion buildVersions.build_tools
+    compileSdkVersion extBuildVersions.compile_sdk
+    buildToolsVersion extBuildVersions.build_tools
 
     defaultConfig {
-        applicationId "com.tsl.androidbase"
-        minSdkVersion buildVersions.min_sdk
-        targetSdkVersion buildVersions.target_sdk
-        versionCode buildVersions.version_code
-        versionName buildVersions.version_name
+        applicationId extAppVersions.appApplicationId
+        minSdkVersion extBuildVersions.min_sdk
+        targetSdkVersion extBuildVersions.target_sdk
+        versionCode extBuildVersions.version_code
+        versionName extBuildVersions.version_name
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -41,13 +41,13 @@ android {
         debug {
             applicationIdSuffix ".debug"
             manifestPlaceholders = [
-                    APP_NAME: "@string/app_name_debug",
+                    APP_NAME: extAppVersions.appNameDebug,
             ]
         }
 
         release {
             manifestPlaceholders = [
-                    APP_NAME: "@string/app_name",
+                    APP_NAME: extAppVersions.appName,
             ]
             minifyEnabled false
             signingConfig signingConfigs.release
@@ -90,11 +90,11 @@ def publish_To_Local(output, versionName) {
     properties.load(inputStream)
     //apk最终发布路径 （电脑上的真实目录, 配置在local.properties）
     //C:\Users\admin\Desktop\TSL_APP
-    String publishDir = extAppVersions.publishDir
-    String isPublish = extAppVersions.isPublish
-    String versionType = extAppVersions.versionType
-    String apkName = extAppVersions.apkName
-    println("1."+publishDir+"      2."+isPublish+"           3."+versionType+ "        4."+apkName)
+    String publishDir = extApkVersions.publishDir
+    String isPublish = extApkVersions.isPublish
+    String versionType = extApkVersions.versionType
+    String apkName = extApkVersions.apkName
+    println("1." + publishDir + "      2." + isPublish + "           3." + versionType + "        4." + apkName)
     if (publishDir == null || publishDir.isEmpty() || isPublish == "false") {
         println("禁止发布apk到本地")
         return

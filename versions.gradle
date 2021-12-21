@@ -14,12 +14,20 @@ ext {
  RC版: 该版本已经相当成熟了，基本上不存在导致错误的BUG，与即将发行的正式版相差无几。
  Release版: 该版本意味“最终版本”，在前面版本的一系列测试版之后，终归会有一个正式版本，是最终交付用户使用的一个版本。
 */
+/*app的信息*/
+def app_versions = [:]
+app_versions.appName = "叫啥呢"
+app_versions.appNameDebug = "叫啥呢~"
+app_versions.appApplicationId = "com.tsl.androidbase"
+ext.extAppVersions = app_versions
+
+/*安装包的信息*/
 def apk_versions = [:]
 apk_versions.versionType = "Alpha"
 apk_versions.apkName = "AndroidBase"
-apk_versions.isPublish = true
-apk_versions.publishDir ="C:\\Users\\admin\\Desktop\\TSL_APP\\Android_Base_App"
-ext.extAppVersions = apk_versions
+apk_versions.isPublish = false
+apk_versions.publishDir = "C:\\Users\\admin\\Desktop\\TSL_APP\\Android_Base_App"
+ext.extApkVersions = apk_versions
 
 def build_versions = [:]
 build_versions.min_sdk = 25
@@ -28,7 +36,7 @@ build_versions.target_sdk = 30
 build_versions.build_tools = "30.0.2"
 build_versions.version_code = 1
 build_versions.version_name = "1.0.1"
-ext.buildVersions = build_versions
+ext.extBuildVersions = build_versions
 
 //添加新版本的时候，按照首字母顺序排列
 def library_versions = [:]
