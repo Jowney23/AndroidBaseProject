@@ -21,10 +21,16 @@ android {
     }
 
     signingConfigs {
-        release {
+        release1 {
             storeFile file("./sign/tsl_android_base_keystore.jks")
             storePassword "123456"
             keyAlias "tsl"
+            keyPassword "123456"
+        }
+        release2 {
+            storeFile file("./sign/xs2_4328_platform.jks")
+            storePassword "123456"
+            keyAlias "tslkeystore"
             keyPassword "123456"
         }
     }
@@ -39,7 +45,10 @@ android {
     }
     buildTypes {
         debug {
-            applicationIdSuffix ".debug"
+            //  applicationIdSuffix ".debug"
+            //manifestPlaceholders = [
+            //      APP_NAME: "@string/app_name_debug",
+            //]
             manifestPlaceholders = [
                     APP_NAME: extAppVersions.appNameDebug,
             ]
@@ -50,10 +59,20 @@ android {
                     APP_NAME: extAppVersions.appName,
             ]
             minifyEnabled false
-            signingConfig signingConfigs.release
+            // signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    flavorDimensions 'device'
+    productFlavors {
+        product1 {
+            signingConfig signingConfigs.release1
+        }
+        product2 {
+            signingConfig signingConfigs.release2
+        }
+    }
+
     applicationVariants.all { variant ->
         println("gradle1->   " + variant.buildType.name)
         def buildType = variant.buildType

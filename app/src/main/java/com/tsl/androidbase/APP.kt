@@ -8,8 +8,10 @@ import com.jowney.player.player.AndroidMediaPlayerFactory
 import com.jowney.player.player.VideoViewConfig
 import com.jowney.player.player.VideoViewManager
 import com.tsl.androidbase.repository.db.Db
+import com.tsl.androidbase.repository.db.tables.Word
 import com.tsl.androidbase.repository.net.api.ServerApi
 import com.tsl.androidbase.repository.net.api.ServerURL
+import java.util.concurrent.Executors
 
 
 class APP : BaseApplication() {
@@ -27,7 +29,7 @@ class APP : BaseApplication() {
                 .showThreadInfo(true)  // (Optional) Whether to show thread info or not. Default true
                 .methodCount(2)         // (Optional) How many method line to show. Default 2
                 .methodOffset(0)        // (Optional) Hides internal method calls up to offset. Default 5
-                .tag("My custom tag")   // (Optional) Global tag for every log. Default PRETTY_LOGGER
+                .tag("tsl")   // (Optional) Global tag for every log. Default PRETTY_LOGGER
                 .build()) {
             override fun isLoggable(priority: Int, tag: String?): Boolean {
                 return BuildConfig.DEBUG
@@ -35,8 +37,8 @@ class APP : BaseApplication() {
         })
         L.addLogAdapter(object : DiskLogAdapter(
             CsvFormatStrategy.newBuilder()
-            .tag("jowney")
-            .build()){
+                .tag("jowney")
+                .build()) {
             override fun isLoggable(priority: Int, tag: String?): Boolean {
                 return !BuildConfig.DEBUG
             }
@@ -44,7 +46,6 @@ class APP : BaseApplication() {
         //网络模块儿初始化
         RetrofitMaster.getInstance().init(ServerURL.URL_BASE, ServerApi::class.java, null)
         //视频模块儿
-        //播放器配置，注意：此为全局配置，按需开启
         //播放器配置，注意：此为全局配置，按需开启
         VideoViewManager.setConfig(
             VideoViewConfig.newBuilder()
@@ -67,6 +68,7 @@ class APP : BaseApplication() {
                 //                .setProgressManager(new ProgressManagerImpl())
                 .build()
         )
+
     }
 
     override fun onLowMemory() {

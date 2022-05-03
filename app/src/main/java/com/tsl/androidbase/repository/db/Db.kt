@@ -10,7 +10,7 @@ import com.tsl.androidbase.repository.db.dao.WordDao
 import com.tsl.androidbase.repository.db.tables.Word
 
 
-@Database(entities = [Word::class], version = 1,exportSchema = false)
+@Database(entities = [Word::class], version = 1, exportSchema = false)
 abstract class Db : RoomDatabase() {
     //添加Dao
     abstract fun wordDao(): WordDao
@@ -22,21 +22,22 @@ abstract class Db : RoomDatabase() {
         @Synchronized
         fun getDb(context: Context): Db {
             if (INSTANCE == null) {
-                INSTANCE = Room.databaseBuilder(context.applicationContext,
-                    //名字不要加_下划线（callback导致无法正常回调）
-                    Db::class.java, "CheeseDatabase").addCallback(object :RoomDatabase.Callback(){
-                    override fun onCreate(db: SupportSQLiteDatabase) {
-                        Log.i("###", "创建表成功")
-                    }
+                //名字不要加_下划线（callback导致无法正常回调）
+                INSTANCE = Room
+                    .databaseBuilder(context.applicationContext, Db::class.java, "CheeseDatabase")
+                    .addCallback(object : RoomDatabase.Callback() {
+                        override fun onCreate(db: SupportSQLiteDatabase) {
+                            Log.i("###", "数据库创建")
+                        }
 
-                    override fun onOpen(db: SupportSQLiteDatabase) {
-                        Log.i("###", "打开成功")
-                    }
+                        override fun onOpen(db: SupportSQLiteDatabase) {
+                            Log.i("###", "打开成功")
+                        }
 
-                    override fun onDestructiveMigration(db: SupportSQLiteDatabase) {
+                        override fun onDestructiveMigration(db: SupportSQLiteDatabase) {
 
-                    }
-                }).build()
+                        }
+                    }).build()
             }
 
             return INSTANCE!!
