@@ -29,8 +29,9 @@ public class AnimationActivity extends AppCompatActivity {
     private SeekBar seekBar;
     private Toolbar mToolbar;
     private EditText mEditText;
-    private  int mColor=0;
+    private int mColor = 0;
     private int mAlpha = 0;
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +40,14 @@ public class AnimationActivity extends AppCompatActivity {
         setContentView(R.layout.common_activity_animation);
 
         textView = findViewById(R.id.id_tv);
-        seekBar= findViewById(R.id.id_sb_change_alpha);
+        seekBar = findViewById(R.id.id_sb_change_alpha);
         mToolbar = findViewById(R.id.id_tbar);
         mEditText = findViewById(R.id.id_common_toolbar_et);
         //toolbar常用设置
-     //   mToolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp);
-       // mToolbar.setTitle("123");
-      //  mToolbar.setSubtitle("我是SubTitle");
-     //   mToolbar.setLogo(R.drawable.ic_favorite_24dp);
+        //   mToolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp);
+        // mToolbar.setTitle("123");
+        //  mToolbar.setSubtitle("我是SubTitle");
+        //   mToolbar.setLogo(R.drawable.ic_favorite_24dp);
         //用toolbar代替actionbar
 
         mEditText.setOnTouchListener(new View.OnTouchListener() {
@@ -58,8 +59,8 @@ public class AnimationActivity extends AppCompatActivity {
                 final int DRAWABLE_RIGHT = 2;
                 final int DRAWABLE_BOTTOM = 3;
 
-                if(event.getAction() == MotionEvent.ACTION_UP) {
-                    if(event.getRawX() >= (mEditText.getRight() - mEditText.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (event.getRawX() >= (mEditText.getRight() - mEditText.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
                         // your action here
                         ToastUtils.show("11111111");
                         return true;

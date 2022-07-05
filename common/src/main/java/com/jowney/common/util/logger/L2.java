@@ -12,7 +12,7 @@ import static com.jowney.common.util.logger.LoggerUtils.checkNotNull;
  * L类只将调试日志输出在控制平台
  * L2类既可以输出在控制平台，也可以输出到本地日志
  */
-public final class L {
+public final class L2 {
 
     protected static final int VERBOSE = 2;
     protected static final int DEBUG = 3;
@@ -25,26 +25,34 @@ public final class L {
     private static Printer printer = new LoggerPrinter();
 
     static {
-        L.addLogAdapter(new AndroidLogAdapter(
+        L2.addLogAdapter(new AndroidLogAdapter(
                 PrettyFormatStrategy.newBuilder()
                         .showThreadInfo(true)  // (Optional) Whether to show thread info or not. Default true
                         .methodCount(2)         // (Optional) How many method line to show. Default 2
                         .methodOffset(0)        // (Optional) Hides internal method calls up to offset. Default 5
-                        .tag("tsl_jowney")   // (Optional) Global tag for every log. Default PRETTY_LOGGER
+                        .tag("log_disk")   // (Optional) Global tag for every log. Default PRETTY_LOGGER
                         .build()) {
             @Override
             public boolean isLoggable(int priority, @Nullable @org.jetbrains.annotations.Nullable String tag) {
                 return BuildConfig.DEBUG;
             }
-    });
-}
+        });
+        L2.addLogAdapter(new DiskLogAdapter( CsvFormatStrategy.newBuilder()
+                .tag("log_disk")
+                .build()){
+            @Override
+            public boolean isLoggable(int priority, @Nullable @org.jetbrains.annotations.Nullable String tag) {
+                return !BuildConfig.DEBUG;
+            }
+        });
+    }
 
-    private L() {
+    private L2() {
         //no instance
     }
 
     public static void printer(@NonNull Printer printer) {
-        L.printer = checkNotNull(printer);
+        L2.printer = checkNotNull(printer);
     }
 
     public static void addLogAdapter(@NonNull LogAdapter adapter) {
