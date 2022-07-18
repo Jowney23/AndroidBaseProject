@@ -13,7 +13,7 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.jowney.player.player.VideoView;
+import com.jowney.player.ui.VideoView;
 import com.jowney.player.util.PlayerUtils;
 
 import java.util.Map;

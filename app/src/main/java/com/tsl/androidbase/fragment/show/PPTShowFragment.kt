@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import com.jowney.common.banner.Banner
-import com.jowney.common.banner.transformer.AlphaPageTransformer
+import com.jowney.common.widget.banner.Banner
+import com.jowney.common.widget.banner.transformer.AlphaPageTransformer
 import com.tsl.androidbase.R
 import com.tsl.androidbase.activity.show.ShowActivityViewModel
 import com.tsl.androidbase.adapter.ImageBannerAdapter
@@ -47,7 +47,7 @@ class PPTShowFragment : Fragment() {
         //添加透明效果(画廊配合透明效果更棒)
 
         var banner: Banner<DataBean, ImageBannerAdapter> = view.widget_pptsf_banner as Banner<DataBean, ImageBannerAdapter>
-        banner.addPageTransformer( AlphaPageTransformer());
+        banner.addPageTransformer(AlphaPageTransformer());
         banner.setAdapter(ImageBannerAdapter(DataBean.testData))
         view.widget_pptsf_banner.setIndicator(view.widget_pptsf_indicator, false)
 

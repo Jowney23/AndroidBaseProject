@@ -2,7 +2,7 @@ package com.jowney.player.render;
 
 import android.view.View;
 
-import com.jowney.player.player.VideoView;
+import com.jowney.player.ui.VideoView;
 
 
 public class MeasureHelper {

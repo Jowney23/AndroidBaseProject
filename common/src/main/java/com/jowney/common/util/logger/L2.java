@@ -30,19 +30,19 @@ public final class L2 {
                         .showThreadInfo(true)  // (Optional) Whether to show thread info or not. Default true
                         .methodCount(2)         // (Optional) How many method line to show. Default 2
                         .methodOffset(0)        // (Optional) Hides internal method calls up to offset. Default 5
-                        .tag("log_disk")   // (Optional) Global tag for every log. Default PRETTY_LOGGER
+                        .tag("L2")   // (Optional) Global tag for every log. Default PRETTY_LOGGER
                         .build()) {
             @Override
             public boolean isLoggable(int priority, @Nullable @org.jetbrains.annotations.Nullable String tag) {
-                return BuildConfig.DEBUG;
+                return true;
             }
         });
         L2.addLogAdapter(new DiskLogAdapter( CsvFormatStrategy.newBuilder()
-                .tag("log_disk")
+                .tag("L2")
                 .build()){
             @Override
             public boolean isLoggable(int priority, @Nullable @org.jetbrains.annotations.Nullable String tag) {
-                return !BuildConfig.DEBUG;
+                return true;
             }
         });
     }

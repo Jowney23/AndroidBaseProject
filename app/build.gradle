@@ -63,15 +63,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    flavorDimensions 'device'
-    productFlavors {
-        product1 {
-            signingConfig signingConfigs.release1
-        }
-        product2 {
-            signingConfig signingConfigs.release2
-        }
-    }
+
 
     applicationVariants.all { variant ->
         println("gradle1->   " + variant.buildType.name)

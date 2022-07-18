@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.jowney.player.player.AndroidMediaPlayer
-import com.jowney.player.player.VideoView
+import com.jowney.player.ui.VideoView
 import com.jowney.player.ui.StandardVideoController
 import com.tsl.androidbase.R
 import com.tsl.androidbase.activity.show.ShowActivityViewModel

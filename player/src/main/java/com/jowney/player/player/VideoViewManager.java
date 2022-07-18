@@ -2,6 +2,7 @@ package com.jowney.player.player;
 
 import android.app.Application;
 
+import com.jowney.player.ui.VideoView;
 import com.jowney.player.util.PlayerLogUtil;
 
 import java.util.LinkedHashMap;

@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 import com.jowney.player.R;
 import com.jowney.player.controller.ControlWrapper;
 import com.jowney.player.controller.IControlComponent;
-import com.jowney.player.player.VideoView;
+import com.jowney.player.ui.VideoView;
 import com.jowney.player.player.VideoViewManager;
 
 

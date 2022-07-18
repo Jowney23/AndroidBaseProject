@@ -8,7 +8,7 @@
     android:background="#ffffff"
     tools:context=".fragment.PPTShowFragment">
 
-    <com.jowney.common.banner.Banner
+    <com.jowney.common.widget.banner.Banner
         android:id="@+id/widget_pptsf_banner"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -16,7 +16,7 @@
         banner:banner_radius="5dp"
         banner:banner_auto_loop="false"/>
 
-    <com.jowney.common.banner.indicator.DrawableIndicator
+    <com.jowney.common.widget.banner.indicator.DrawableIndicator
         android:id="@+id/widget_pptsf_indicator"
         android:layout_width="match_parent"
         android:layout_height="0dp"

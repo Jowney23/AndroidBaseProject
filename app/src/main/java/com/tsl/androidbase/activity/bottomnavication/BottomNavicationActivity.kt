@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.jaeger.library.StatusBarUtil
 import com.jowney.common.accessibility.CommonAccessibilityService
+import com.jowney.common.util.DensityUtils
 import com.jowney.common.util.logger.L
 import com.tsl.androidbase.R
 import com.tsl.androidbase.activity.BaseActivity
@@ -24,7 +25,7 @@ class BottomNavicationActivity : BaseActivity() {
     val data = ArrayList<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        DensityUtils.setDensity(application,this)
         setContentView(R.layout.activity_bottom_navication)
 
         lifecycle.addObserver(BottomNavicationPresenter())

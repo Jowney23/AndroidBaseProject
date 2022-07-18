@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".sample.AnimationActivity">
+    tools:context=".sample.CommonAnimationActivity">
     <!-- 设置layout_height和minHeight高度一致，保证toolbar里面内容高度一致-->
 
     <androidx.appcompat.widget.Toolbar

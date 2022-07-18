@@ -4,7 +4,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.jowney.common.banner.adapter.BannerAdapter
+import com.jowney.common.widget.banner.adapter.BannerAdapter
 import com.tsl.androidbase.bean.DataBean
 
 class ImageBannerAdapter(mDatas: List<DataBean>) : BannerAdapter<DataBean, ImageBannerAdapter.ImageHolder>(mDatas) {

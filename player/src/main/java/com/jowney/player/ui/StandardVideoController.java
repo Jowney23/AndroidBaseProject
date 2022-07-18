@@ -17,7 +17,6 @@ import androidx.annotation.Nullable;
 
 import com.jowney.player.R;
 import com.jowney.player.controller.GestureVideoController;
-import com.jowney.player.player.VideoView;
 import com.jowney.player.ui.view.CompleteView;
 import com.jowney.player.ui.view.ErrorView;
 import com.jowney.player.ui.view.GestureView;

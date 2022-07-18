@@ -3,6 +3,7 @@ package com.jowney.common.util.logger;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+
 import com.jowney.common.BuildConfig;
 
 import static com.jowney.common.util.logger.LoggerUtils.checkNotNull;
@@ -34,7 +35,7 @@ public final class L {
                         .build()) {
             @Override
             public boolean isLoggable(int priority, @Nullable @org.jetbrains.annotations.Nullable String tag) {
-                return BuildConfig.DEBUG;
+                return true;
             }
     });
 }

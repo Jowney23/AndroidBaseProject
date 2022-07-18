@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_green_light"
-    tools:context=".fragment.VideoShowFragment">
+    tools:context=".fragment.show.VideoShowFragment">
 
-    <com.jowney.player.player.VideoView
+    <com.jowney.player.ui.VideoView
         android:id="@+id/widget_vsf_videoview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

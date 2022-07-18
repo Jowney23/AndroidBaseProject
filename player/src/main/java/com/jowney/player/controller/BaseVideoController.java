@@ -16,7 +16,7 @@ import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.jowney.player.player.VideoView;
+import com.jowney.player.ui.VideoView;
 import com.jowney.player.player.VideoViewManager;
 import com.jowney.player.util.CutoutUtil;
 import com.jowney.player.util.PlayerLogUtil;

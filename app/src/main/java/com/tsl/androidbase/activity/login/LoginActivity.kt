@@ -28,7 +28,6 @@ class LoginActivity : BaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        Log.d(TAG,"onResume"+ Navigation.findNavController(this,R.id.id_nav_host_fragment))
 
     }
 

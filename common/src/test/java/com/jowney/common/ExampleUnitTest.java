@@ -17,29 +17,5 @@ import io.reactivex.functions.Function;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
-        Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(ObservableEmitter<String> emitter) throws Exception {
-                emitter.onNext("1");
-            }
-        }).subscribe(new Consumer<String>() {
-            @Override
-            public void accept(String s) throws Exception {
-
-            }
-        });
-
-        Observable.just("爸爸打我").map(new Function<String, Integer>() {
-            @Override
-            public Integer apply(String s) throws Exception {
-                return s.length();
-            }
-        }).subscribe(new Consumer<Integer>() {
-            @Override
-            public void accept(Integer integer) throws Exception {
-                System.out.println(integer);
-            }
-        });
-
     }
 }

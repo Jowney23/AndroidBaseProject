@@ -3,42 +3,52 @@
     package="com.tsl.androidbase">
 
     <application
-        android:name="com.tsl.androidbase.APP"
+        android:name=".APP"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="${APP_NAME}"
-        android:requestLegacyExternalStorage="true"
         android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.show.ShowActivity">
+        <activity android:name=".activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.tsl.androidbase.activity.bottomnavication.BottomNavicationActivity">
-          <!--  <intent-filter>
+        <activity android:name=".activity.show.ShowActivity">
+        </activity>
+        <activity android:name=".activity.bottomnavication.BottomNavicationActivity">
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
-        <activity android:name="com.jowney.common.sample.popup.CommonPopupActivity" >
-            <!--  <intent-filter>
+        <activity android:name="com.jowney.common.sample.popup.CommonPopupActivity">
+
+            <!--
+           <intent-filter>
                <action android:name="android.intent.action.MAIN" />
                <category android:name="android.intent.category.LAUNCHER" />
-           </intent-filter>-->
+           </intent-filter>
+            -->
         </activity>
-        <activity android:name="com.tsl.androidbase.activity.login.LoginActivity">
+        <activity android:name=".activity.login.LoginActivity">
 
-           <!-- <intent-filter>
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
-        <activity android:name="com.jowney.common.sample.AnimationActivity">
+        <activity android:name="com.jowney.common.sample.CommonAnimationActivity">
 
             <!--
             <intent-filter>
@@ -50,15 +60,17 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.tsl.androidbase.activity.bottomnavication.BottomNavicationActivity" />
         </activity>
+
         <service
             android:name="com.jowney.common.accessibility.CommonAccessibilityService"
             android:enabled="true"
             android:label="@string/accessibility_label"
-            android:process="com.jowney.monitor"
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:process="com.jowney.monitor">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
+
             <meta-data
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibility_config" />

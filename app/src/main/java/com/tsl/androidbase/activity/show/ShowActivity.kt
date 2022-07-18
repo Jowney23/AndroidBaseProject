@@ -1,6 +1,7 @@
 package com.tsl.androidbase.activity.show
 
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View
@@ -11,6 +12,9 @@ import com.hjq.permissions.Permission
 import com.hjq.permissions.XXPermissions
 import com.hjq.toast.ToastUtils
 import com.jaeger.library.StatusBarUtil
+import com.jowney.common.sample.popup.custom.CustomCenterPopup
+import com.jowney.common.sample.popup.custom.LoginPopup
+import com.jowney.common.util.DensityUtils
 import com.jowney.common.util.logger.L
 import com.lxj.xpopup.XPopup
 import com.tsl.androidbase.R
@@ -24,26 +28,23 @@ class ShowActivity : BaseActivity() {
     private lateinit var mShowNavController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_show)
         var model: ShowActivityViewModel =
             ViewModelProvider(this).get(ShowActivityViewModel::class.java)
         mBasePopupView = BottomShowPopup(this)
         model.setBottomPopup(mBasePopupView)
-        XXPermissions.with(this) // 不适配 Android 11 可以这样写
-            //.permission(Permission.Group.STORAGE)
-            // 适配 Android 11 需要这样写，这里无需再写 Permission.Group.STORAGE
-            .permission(Permission.MANAGE_EXTERNAL_STORAGE)
-            .request(OnPermissionCallback { permissions, all ->
-                if (all) {
-                    ToastUtils.show("获取存储权限成功")
-                }
-            })
+
 
         XPopup.Builder(this)
             .moveUpToKeyboard(false) //如果不加这个，评论弹窗会移动到软键盘上面
             .enableDrag(true)
             .isViewMode(true)
             .asCustom(mBasePopupView)
+
+        super.onResume()
+
+
         widget_sa_constraint.setOnLongClickListener {
             if (mBasePopupView.isDismiss) mBasePopupView.show()
             else mBasePopupView.dismiss()
@@ -71,10 +72,6 @@ class ShowActivity : BaseActivity() {
         StatusBarUtil.setTransparent(this)
     }
 
-    override fun onResume() {
-        super.onResume()
-
-    }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
 

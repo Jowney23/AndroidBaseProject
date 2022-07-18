@@ -7,12 +7,14 @@ import android.os.Looper;
 
 import androidx.annotation.NonNull;
 
+import com.jowney.player.ui.VideoView;
+
 import java.lang.ref.WeakReference;
 
 /**
  * 音频焦点改变监听
  */
-final class AudioFocusHelper implements AudioManager.OnAudioFocusChangeListener {
+public class AudioFocusHelper implements AudioManager.OnAudioFocusChangeListener {
 
     private Handler mHandler = new Handler(Looper.getMainLooper());
 
@@ -24,7 +26,7 @@ final class AudioFocusHelper implements AudioManager.OnAudioFocusChangeListener 
     private boolean mPausedForLoss = false;
     private int mCurrentFocus = 0;
 
-    AudioFocusHelper(@NonNull VideoView videoView) {
+    public AudioFocusHelper(@NonNull VideoView videoView) {
         mWeakVideoView = new WeakReference<>(videoView);
         mAudioManager = (AudioManager) videoView.getContext().getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
     }
@@ -81,7 +83,7 @@ final class AudioFocusHelper implements AudioManager.OnAudioFocusChangeListener 
     /**
      * Requests to obtain the audio focus
      */
-    void requestFocus() {
+  public   void requestFocus() {
         if (mCurrentFocus == AudioManager.AUDIOFOCUS_GAIN) {
             return;
         }
@@ -102,7 +104,7 @@ final class AudioFocusHelper implements AudioManager.OnAudioFocusChangeListener 
     /**
      * Requests the system to drop the audio focus
      */
-    void abandonFocus() {
+    public void abandonFocus() {
 
         if (mAudioManager == null) {
             return;
