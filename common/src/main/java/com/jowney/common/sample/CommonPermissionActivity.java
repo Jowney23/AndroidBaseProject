@@ -85,7 +85,7 @@ public class CommonPermissionActivity extends AppCompatActivity implements View.
         } else if (viewId == R.id.btn_main_request_4) {
 
             long delayMillis = 0;
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
+            if (Build.VERSION.SDK_INT <30) {
                 delayMillis = 2000;
                 toast("当前版本不是 Android 11 以上，会自动变更为旧版的请求方式");
             }
