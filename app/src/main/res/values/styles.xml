@@ -12,7 +12,10 @@
 
         <item name="colorAccent">@color/app_colorAccent</item>
         <!--解决首屏启动白屏-->
+    </style>
+    <style name="SplashActivityTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_layer_list</item>
+
     </style>
 
     <style name="MyTablayoutstyle" parent="Base.Widget.Design.TabLayout">
