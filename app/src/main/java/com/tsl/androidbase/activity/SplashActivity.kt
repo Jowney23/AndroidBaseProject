@@ -9,6 +9,7 @@ import com.hjq.permissions.XXPermissions
 import com.hjq.toast.ToastUtils
 import com.jaeger.library.StatusBarUtil
 import com.jowney.common.sample.CommonRefreshActivity
+import com.jowney.common.sample.popup.CommonPopupActivity
 import com.jowney.common.util.logger.L
 import com.jowney.common.util.logger.L2
 import com.tsl.androidbase.R
@@ -25,6 +26,8 @@ class SplashActivity : BaseActivity() {
             .request(OnPermissionCallback { permissions, all ->
                 if (all) {
                     ToastUtils.show("获取所需权限成功")
+                    startActivity(Intent(this, LoginActivity::class.java))
+                    finish()
                 }
             })
     }
@@ -32,7 +35,7 @@ class SplashActivity : BaseActivity() {
     override fun onResume() {
         super.onResume()
         L.v("我是启动页面哦！")
-       // startActivity(Intent(this,BottomNavicationActivity::class.java))
+
     }
     override fun setStatusBar() {
         StatusBarUtil.setTransparent(this)

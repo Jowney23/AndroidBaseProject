@@ -59,7 +59,7 @@ android {
                     APP_NAME: extAppVersions.appName,
             ]
             minifyEnabled false
-            // signingConfig signingConfigs.release
+             signingConfig signingConfigs.release1
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -106,7 +106,7 @@ def publish_To_Local(output, versionName) {
     String versionType = extApkVersions.versionType
     String apkName = extApkVersions.apkName
     println("1." + publishDir + "      2." + isPublish + "           3." + versionType + "        4." + apkName)
-    if (publishDir == null || publishDir.isEmpty() || isPublish == "false") {
+    if (publishDir == null || publishDir.isEmpty() || output.name.contains("debug")) {
         println("禁止发布apk到本地")
         return
     }

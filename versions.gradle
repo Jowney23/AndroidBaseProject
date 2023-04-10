@@ -16,8 +16,8 @@ ext {
 */
 /*app的信息*/
 def app_versions = [:]
-app_versions.appName = "J"
-app_versions.appNameDebug = "J~"
+app_versions.appName = "AndroidBase"
+app_versions.appNameDebug = "AndroidBase~"
 app_versions.appApplicationId = "com.tsl.androidbase"
 ext.extAppVersions = app_versions
 
@@ -25,8 +25,7 @@ ext.extAppVersions = app_versions
 def apk_versions = [:]
 apk_versions.versionType = "Alpha"
 apk_versions.apkName = "AndroidBase"
-apk_versions.isPublish = false
-apk_versions.publishDir = "D:\\project\\TSL_APP\\AS_App_Output"
+apk_versions.publishDir = "D:\\TSL_APP\\AS_App_Output"
 ext.extApkVersions = apk_versions
 
 def build_versions = [:]
